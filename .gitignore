@@ -1,4 +1,4 @@
 *.user
-_ReSharper
+_ReSharper*
 bin
 obj
