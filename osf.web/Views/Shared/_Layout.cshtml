@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>@ViewBag.Title</title>
+		
+		<link href="/content/reset.css" rel="stylesheet" type="text/css" />
+		<link href="/content/site.css" rel="stylesheet" type="text/css" />
+		
+		@RenderSection("head", false)
+	</head>
+
+	<body>
+		<div id="header">
+			<div id="titleWrapper">
+				<img src="/content/images/logo_200.png"/>
+				<ul id="nav" class="inlineBlock">
+					<li>@Html.ActionLink("About Us", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("Mission", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("Strategy", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("Why Is OSF Needed?", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("Portfolio", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("Contact Us", "Index", new {controller = "Home"})</li>
+				</ul>
+			</div>
+		</div>
+		
+		<div id="content">
+			@RenderBody()
+		</div>
+		
+		<div id="footer"></div>
+	</body>
+	
+	@RenderSection("scripts", false)
+</html>
