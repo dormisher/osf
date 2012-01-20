@@ -12,14 +12,15 @@
 	<body>
 		<div id="header">
 			<div id="titleWrapper">
-				<img src="/content/images/logo_200.png"/>
+				<img src="/content/images/logo_side2.png"/>
+				<span>REGISTERED CHARITY NO. 1142543</span>
 				<ul id="nav" class="inlineBlock">
-					<li>@Html.ActionLink("About Us", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("Mission", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("Strategy", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("Why Is OSF Needed?", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("Portfolio", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("Contact Us", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("ABOUT US", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("MISSION", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("STRATEGY", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("WHY OSF?", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("PORTFOLIO", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("CONTACT", "Index", new {controller = "Home"})</li>
 				</ul>
 			</div>
 		</div>
@@ -31,5 +32,7 @@
 		<div id="footer"></div>
 	</body>
 	
+	<script type="text/javascript" src="/Scripts/jquery-1.7.1.js"></script>
+
 	@RenderSection("scripts", false)
 </html>

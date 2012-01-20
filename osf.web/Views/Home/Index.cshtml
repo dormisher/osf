@@ -1,4 +1,52 @@
 ﻿@model HomeModel
 
+@section head
+{
+	<link rel="stylesheet" href="/Content/nivo-slider.css" type="text/css" media="screen"/>
+	<link rel="stylesheet" href="/Scripts/plugins/themes/default/default.css" type="text/css" media="screen"/>
+	
+	<style>
+	    div#slider { text-align:center; width:619px; margin:auto; margin-top:20px; }
+	    div.nivoSlider { -webkit-box-shadow:none!important; -moz-box-shadow:none!important; box-shadow:none!important; width:620px; height:256px; }
+	</style>
+}
+
+<div class="slider-wrapper theme-default">
+        <div id="slider" class="nivoSlider">
+			<img src="/content/images/slider1.png" alt="" />
+			<img src="/content/images/slider2.png" alt="" />
+			<img src="/content/images/slider3.png" alt="" title="#htmlcaption"/>
+            @*<a href="http://dev7studios.com"><img src="images/up.jpg" alt="" title="This is an example of a caption" /></a>
+            <img src="/content/images/kidscheering.png" alt="" data-transition="slideInLeft" />
+            <img src="/content/images/net.png" alt="" @*title="#htmlcaption"/>*@
+        </div>
+        <div id="htmlcaption" class="nivo-html-caption">
+            <strong>This</strong> is an example of a <em>HTML</em> caption with <a href="#">a link</a>.
+        </div>
+    </div>
 
 
+@section scripts
+{
+	<script type="text/javascript" src="/Scripts/plugins/jquery.nivo.slider.pack.js"></script>
+
+	<script type="text/javascript">
+		$('#slider').nivoSlider({
+        effect:"fade",
+        slices:15,
+        boxCols:8,
+        boxRows:4,
+        animSpeed:500,
+        pauseTime:4000,
+        startSlide:0,
+        directionNav:true,
+        directionNavHide:true,
+        controlNav:true,
+        controlNavThumbs:true,
+        controlNavThumbsFromRel:true,
+        keyboardNav:true,
+        pauseOnHover:true,
+        manualAdvance:false
+    });
+	</script>	
+}
