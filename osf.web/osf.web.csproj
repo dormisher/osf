@@ -76,6 +76,7 @@
     <Content Include="Content\images\medal.png" />
     <Content Include="Content\images\net.png" />
     <Content Include="Content\images\netball.png" />
+    <Content Include="Content\images\norman.jpg" />
     <Content Include="Content\images\slider1.png" />
     <Content Include="Content\images\slider2.png" />
     <Content Include="Content\images\slider3.png" />
@@ -85,8 +86,6 @@
     <Content Include="Content\images\logo_200.png" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
-    <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
-    <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\plugins\jquery.nivo.slider.js" />
     <Content Include="Scripts\plugins\jquery.nivo.slider.pack.js" />
