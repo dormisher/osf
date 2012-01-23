@@ -67,10 +67,17 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\images\boxing.png" />
+    <Content Include="Content\images\fb.jpg" />
+    <Content Include="Content\images\flickr.jpg" />
     <Content Include="Content\images\grass.png" />
     <Content Include="Content\images\happykid.png" />
     <Content Include="Content\images\kidfooty.png" />
     <Content Include="Content\images\kidscheering.png" />
+    <Content Include="Content\images\latest1.png" />
+    <Content Include="Content\images\latest2.png" />
+    <Content Include="Content\images\latest3.png" />
+    <Content Include="Content\images\latest4.png" />
+    <Content Include="Content\images\logo_orange.png" />
     <Content Include="Content\images\logo_side.png" />
     <Content Include="Content\images\logo_side2.png" />
     <Content Include="Content\images\medal.png" />
@@ -81,6 +88,8 @@
     <Content Include="Content\images\slider2.png" />
     <Content Include="Content\images\slider3.png" />
     <Content Include="Content\images\training.png" />
+    <Content Include="Content\images\twitter.jpg" />
+    <Content Include="Content\images\youtube.jpg" />
     <Content Include="Content\nivo-slider.css" />
     <Content Include="Content\reset.css" />
     <Content Include="Content\images\logo_200.png" />

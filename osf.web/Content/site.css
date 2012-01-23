@@ -1,7 +1,8 @@
 
-body { font-family:Tahoma; color:#606060; font-size:16px; }
+body { font-family:Tahoma; color:#606060; font-size:16px; background-color:#FCFCFC; }
 
 a { text-decoration:none; }
+p { line-height:1.5; }
 
 /* header */
 

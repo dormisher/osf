@@ -8,11 +8,28 @@
 	<style>
 	    div#content { width:auto; height:auto; margin:auto; }
 	    
-	    div#slider { text-align:center; width:819px; margin:auto; margin-top:40px; }
+	    div#sliderQuote { width:900px; margin:auto; }
+	    
+	    div#quote { vertical-align:top; margin-top:50px; padding:10px; width:225px; height:280px; margin-left:26px; background-color:#eee; border-radius:10px; }
+	    	    	    
+	    div#slider { text-align:center; width:615px; margin:auto; margin-top:50px; }
 	    div.nivoSlider { -webkit-box-shadow:none!important; -moz-box-shadow:none!important; box-shadow:none!important; width:620px; height:256px; }	    
-	    .nivo-caption { text-align:left; color:#606060; background-color:#fff; }
+	    /*.nivo-caption { text-align:left; color:#606060; background-color:#fff; }
 	    .nivo-caption p { margin:10px; margin-left:20px; line-height:2; }
-	    .nivo-caption a {  }
+	    .nivo-caption a {  }*/
+	    
+	    div.boxes { width:900px; margin:60px auto; border-top:1px solid #ddd; padding-top:20px; }
+	    div.boxes h2 { font-size:22px; color:#353535; margin-bottom:20px; }
+	    div.boxes a { color:#00AFEF; font-size:14px; padding:3px 5px; margin-bottom:3px; }
+	    div.boxes a:hover { background-color:#00AFEF; color:#fff; }	    
+	    
+	    div.boxes ul li { display:inline-block; zoom:1; *display:inline; width:200px; margin-right:20px; background-color:#fff; border-right:1px solid #eee; 
+	                       border-bottom:2px solid #eee; height:300px; vertical-align:top; }
+	    div.boxes .image { height:150px; overflow:hidden; }	    	    
+	    div.boxes .info { padding:10px; height:100px; }
+	    div.boxes .info h3 { font-size:14px; color:#353535; margin-bottom:10px; }
+	    div.boxes .info p { color:#606060; font-size:12px; }
+	    div.boxes .readMore { float:right; margin-right:5px; font-size:12px; }
 	    
 	    div#quoteBanner { margin-top:80px; padding:30px 0; border:1px solid #ddd; border-left:none; border-right:none; background-color:#F3F3F3; }
 	    div#quoteWrapper { width:900px; margin:auto; overflow:auto; text-align:justify; }
@@ -22,35 +39,136 @@
 	</style>
 }
 
-<div class="slider-wrapper theme-default">
-    <div id="slider" class="nivoSlider">
-		<a href=""><img src="/content/images/slider1.png" alt="" title="#caption1"/></a>
-		<a href=""><img src="/content/images/slider2.png" alt="" title="#caption2"/></a>
-		<a href=""><img src="/content/images/slider3.png" alt="" title="#caption3"/></a>
-        @*<a href="http://dev7studios.com"><img src="images/up.jpg" alt="" title="This is an example of a caption" /></a>
-        <img src="/content/images/kidscheering.png" alt="" data-transition="slideInLeft" />
-        <img src="/content/images/net.png" alt="" @*title="#htmlcaption"/>*@
-    </div>
-	<div id="caption1" class="nivo-html-caption">
-		Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+<div id="sliderQuote">
+
+	<div class="slider-wrapper theme-default inlineBlock">
+		<div id="slider" class="nivoSlider">
+			<a href=""><img src="/content/images/slider1.png" alt="" @*title="#caption1"*@/></a>
+			<a href=""><img src="/content/images/slider2.png" alt="" @*title="#caption2"*@/></a>
+			<a href=""><img src="/content/images/slider3.png" alt="" @*title="#caption3"*@/></a>
+			@*<a href="http://dev7studios.com"><img src="images/up.jpg" alt="" title="This is an example of a caption" /></a>
+			<img src="/content/images/kidscheering.png" alt="" data-transition="slideInLeft" />
+			<img src="/content/images/net.png" alt="" @*title="#htmlcaption"/>*@
+		</div>
+		@*	<div id="caption1" class="nivo-html-caption">
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+		</div>
+		<div id="caption2" class="nivo-html-caption">
+			Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+		</div>
+		<div id="caption3" class="nivo-html-caption">
+			Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt.
+		</div>*@
 	</div>
-	<div id="caption2" class="nivo-html-caption">
-		Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+	
+	<div id="quote" class="inlineBlock">
+		<p>
+			"I thought I was too old to enjoy sport but it was brilliant. The coaching that opportunity sports gave us was really good, can't wait untill the next session"
+		</p>
 	</div>
-	<div id="caption3" class="nivo-html-caption">
-		Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius.
-    </div>
+
 </div>
 
-<div id="quoteBanner">
+<div class="boxes">
+	<h2>Latest Events <a href="" class="inlineBlock">view all →</a></h2>
+	<ul>
+		<li>
+			<div class="image">
+				<img src="/Content/images/latest1.png"/>
+			</div>
+			<div class="info">
+				<h3>Lorem Ipsum</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+			</div>
+			<a class="readMore" href="">read more →</a>
+		</li>
+		<li>
+			<div class="image">
+				<img src="/Content/images/latest2.png"/>
+			</div>
+			<div class="info">
+				<h3>Dolor Sit Amet</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+			</div>
+			<a class="readMore" href="">read more →</a>
+		</li>
+		<li>
+			<div class="image">
+				<img src="/Content/images/latest3.png"/>
+			</div>
+			<div class="info">
+				<h3>Esse Enim</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+			</div>
+			<a class="readMore" href="">read more →</a>
+		</li>
+		<li>
+			<div class="image">
+				<img src="/Content/images/latest4.png"/>
+			</div>
+			<div class="info">
+				<h3>Alio Modo</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+			</div>
+			<a class="readMore" href="">read more →</a>
+		</li>
+	</ul>
+</div>
+
+<div class="boxes">
+	<h2>Connect with us!</h2>
+	<ul>
+		<li>
+			<div class="image">
+				<img src="/Content/images/fb.jpg"/>
+			</div>
+			<div class="info">
+				<h3>Facebook</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+			</div>
+			<a class="readMore" href="">view page →</a>
+		</li>
+		<li>
+			<div class="image">
+				<img src="/Content/images/twitter.jpg"/>
+			</div>
+			<div class="info">
+				<h3>Twitter</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+			</div>
+			<a class="readMore" href="">view profile →</a>
+		</li>
+		<li>
+			<div class="image">
+				<img src="/Content/images/flickr.jpg"/>
+			</div>
+			<div class="info">
+				<h3>Flickr</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+			</div>
+			<a class="readMore" href="">view photostream →</a>
+		</li>
+		<li>
+			<div class="image">
+				<img src="/Content/images/youtube.jpg"/>
+			</div>
+			<div class="info">
+				<h3>YouTube</h3>
+				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+			</div>
+			<a class="readMore" href="">view channel →</a>
+		</li>
+	</ul>
+</div>
+
+@*<div id="quoteBanner">
 	<div id="quoteWrapper">
-		<h2>Hello and Welcome!</h2>
 		<img src="/Content/images/norman.jpg"/>
 		<span>
 			"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum."
 		</span>
 	</div>
-</div>
+</div>*@
 
 
 @section scripts
@@ -59,7 +177,7 @@
 
 	<script type="text/javascript">
 		$('#slider').nivoSlider({
-        effect:"fade",
+        effect:"random",
         slices:15,
         boxCols:8,
         boxRows:4,
