@@ -84,6 +84,7 @@
     <Content Include="Content\images\net.png" />
     <Content Include="Content\images\netball.png" />
     <Content Include="Content\images\norman.jpg" />
+    <Content Include="Content\images\signature.png" />
     <Content Include="Content\images\slider1.png" />
     <Content Include="Content\images\slider2.png" />
     <Content Include="Content\images\slider3.png" />

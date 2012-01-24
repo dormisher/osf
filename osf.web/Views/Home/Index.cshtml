@@ -11,6 +11,7 @@
 	    div#sliderQuote { width:900px; margin:auto; }
 	    
 	    div#quote { vertical-align:top; margin-top:50px; padding:10px; width:225px; height:280px; margin-left:26px; background-color:#eee; border-radius:10px; }
+	    div#quote h3 {  }
 	    div#quote img { margin-left:50px; margin-bottom:-2px; }
 	    div#quote p { background-color:#fff; border-radius:10px; padding:10px; font-size:14px; border-bottom:2px solid #ddd; }
 	    
@@ -33,11 +34,11 @@
 	    div.boxes .info p { color:#606060; font-size:12px; }
 	    div.boxes .readMore { float:right; margin-right:5px; font-size:12px; }
 	    
-	    div#quoteBanner { margin-top:80px; padding:30px 0; border:1px solid #ddd; border-left:none; border-right:none; background-color:#F3F3F3; }
-	    div#quoteWrapper { width:900px; margin:auto; overflow:auto; text-align:justify; }
+	    div#quoteWrapper { width:900px; margin:auto; overflow:auto; text-align:justify; border-top:1px solid #ddd; padding-top:40px; }
 	    div#quoteWrapper h2 { font-size:22px; margin-bottom:30px; color:#353535; margin-left:5px; }
-		div#quoteWrapper img { height:165px; border:1px solid #DDD; padding:5px; background-color:white; float:left; margin-right:10px; }
-		div#quoteWrapper span { font-size:13px; line-height:1.5; }
+		div#quoteWrapper #profile { height:165px; border:1px solid #DDD; padding:5px; background-color:white; float:left; margin-right:20px; }
+		div#quoteWrapper p { font-size:13px; line-height:1.8; margin-bottom:10px; }
+		div#quoteWrapper div#speechWrapper { width:675px; }
 	</style>
 }
 
@@ -64,6 +65,7 @@
 	</div>
 	
 	<div id="quote" class="inlineBlock">
+		<h3>Waqar Patel, age 17 - Participant in OSF Activity</h3>
 		<img src="/Content/images/triangle.png"/>
 		<p>
 			I thought I was too old to enjoy sport but it was brilliant. The coaching that opportunity sports gave us was really good, can't wait untill the next session.
@@ -73,14 +75,14 @@
 </div>
 
 <div class="boxes">
-	<h2>Latest Events <a href="" class="inlineBlock">view all →</a></h2>
+	<h2>What is OSF? <a href="" class="inlineBlock">view all →</a></h2>
 	<ul>
 		<li>
 			<div class="image">
 				<img src="/Content/images/latest1.png"/>
 			</div>
 			<div class="info">
-				<h3>Lorem Ipsum</h3>
+				<h3>Misson</h3>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
 			</div>
 			<a class="readMore" href="">read more →</a>
@@ -90,7 +92,7 @@
 				<img src="/Content/images/latest2.png"/>
 			</div>
 			<div class="info">
-				<h3>Dolor Sit Amet</h3>
+				<h3>Strategy</h3>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
 			</div>
 			<a class="readMore" href="">read more →</a>
@@ -100,7 +102,7 @@
 				<img src="/Content/images/latest3.png"/>
 			</div>
 			<div class="info">
-				<h3>Esse Enim</h3>
+				<h3>Portfolio</h3>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
 			</div>
 			<a class="readMore" href="">read more →</a>
@@ -110,12 +112,50 @@
 				<img src="/Content/images/latest4.png"/>
 			</div>
 			<div class="info">
-				<h3>Alio Modo</h3>
+				<h3>Why OSF?</h3>
 				<p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
 			</div>
 			<a class="readMore" href="">read more →</a>
 		</li>
 	</ul>
+</div>
+
+<div id="quoteWrapper">
+	<h2>Message from Normal Bell, Chairmen of Trustees</h2>
+	<img id="profile" src="/Content/images/norman.jpg" class="inlineBlock"/>
+	<div id="speechWrapper" class="inlineBlock">
+		<p>
+			I have seen the massive benefits that sport can bring to individuals, particularly young people and children. It has long been my dream to establish
+			an organisation that from first to last is focused entirely on the social development of young disadvantaged people and children through a variety
+			of sporting activity, utilising top-flight professional coaches.
+		</p>
+		<p>
+			As a professional footballer with Wolverhampton Wanderers and Blackburn Rovers I have seen first hand the huge benefits that sport can bring to the social
+			development of young people. It has been a privilege over the last thirty years to be heavily involved, on a voluntary basis, with young people from
+			privileged backgrounds along with young people who have been socially disadvantaged, disabled, or have offended. For me it was a natural progression
+			to set up <span class="bold">Sports Opportunity Foundation</span>.
+		</p>
+		<p>
+			Involvement in sport has changed my life and provided me with opportunities that I could have only dreamed of. At OSF we have achieved significant success
+			through focused sport activity. The success of our sport development initiatives has led to another natural progression - obtaining full charity status.
+		</p>
+		<p>
+			We are delighted that individuals and organisations have positively endorsed our work and we are pleased to share these endorsements with users and potential
+			users of our non-profit making service.
+		</p>
+		<p>
+			I believe OSF will provide significant opportunities for the youth of Lancashire and the North West through the provision of first class sport coaching. It
+			will be up to young people of the region to grasp this opportunity and seize the chance to take ownership of their own destiny.
+		</p>
+		<p>
+			Sincere best wishes
+		</p>
+		<p>
+		<img src="/Content/images/signature.png"/>
+		<p>
+			Chairman of Trustees, OSF
+		</p>
+	</div>
 </div>
 
 <div class="boxes">
@@ -163,16 +203,6 @@
 		</li>
 	</ul>
 </div>
-
-@*<div id="quoteBanner">
-	<div id="quoteWrapper">
-		<img src="/Content/images/norman.jpg"/>
-		<span>
-			"Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat. Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit praesent luptatum zzril delenit augue duis dolore te feugait nulla facilisi. Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt lectores legere me lius quod ii legunt saepius. Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum."
-		</span>
-	</div>
-</div>*@
-
 
 @section scripts
 {
