@@ -20,7 +20,10 @@ ul#nav li a:hover { font-weight:bold; }
 
 /* footer */
 
-div#footer { width:100%; height:200px; background-color:#F0B310; }
+div#footer { width:100%; height:200px; background-color:#F3F3F3; }
+div#footer #footerWrapper { width:900px; margin:auto; }
+div#footer div.footContent { display:inline-block; zoom:1; *display:inline; width:295px; }
+div#footer div.footContent h3 { margin:20px; color:#353535; font-size:20px; }
 
 /* content */
 
