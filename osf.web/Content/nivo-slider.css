@@ -46,16 +46,17 @@
 }
 /* Caption styles */
 .nivo-caption {
-    float: right;
-    height: 100%;
-    width: 200px;
 	position:absolute;
+    width:100%;
+    height:50px;
 	right:0px;
 	bottom:0px;
 	background:#000;
 	color:#fff;
-	opacity:0.8; /* Overridden by captionOpacity setting */
+	opacity:0.6!important; /* Overridden by captionOpacity setting */
 	z-index:8;
+    text-align:justify;
+    font-size:12px;
 }
 .nivo-caption p {
 	padding:5px;
