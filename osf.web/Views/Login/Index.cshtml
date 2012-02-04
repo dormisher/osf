@@ -1,0 +1,33 @@
+﻿@model LoginModel
+
+@section head
+{
+    <style>
+        h2 { font-size:26px; margin:20px 0; padding-bottom:10px; }
+    </style>
+}
+
+<h2 class="bottomBorder">Admin Login</h2>
+
+@using (Html.BeginForm())
+{
+    <ul class="itemList">
+        <li>
+            <label>Username</label>
+            @Html.TextBoxFor(m => m.Username)
+            @Html.ValidationMessageFor(m => m.Username)
+        </li>
+        <li>
+            <label>Password</label>
+            @Html.PasswordFor(m => m.Password)
+            @Html.ValidationMessageFor(m => m.Password)
+        </li>
+        <li>
+            <label></label>
+            <input type="submit" value="Login" class="button"/>
+        </li>
+    </ul>
+}
+
+
+

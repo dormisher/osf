@@ -1,0 +1,62 @@
+﻿@model EventAdminModel
+
+@section head
+{
+    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/minified/jquery.ui.datepicker.min.css")"/>
+
+    <style>
+        h2 { font-size:26px; margin:20px 0; padding-bottom:10px; }
+        h3 {padding-bottom:10px;margin-bottom:10px; }
+        .itemList label {width:150px; }
+    </style>
+}
+
+<h2>Latest Events</h2>
+    
+<form method="POST" enctype="multipart/form-data">
+    
+    <div id="addEvent" class="fullBorder padded">
+        <h3 class="bottomBorder">Add Event</h3>
+
+        <ul class="itemList">
+            <li>
+                <label>Image</label>
+                <input type="file" name="Image"/>
+                @Html.ValidationMessage("Image")
+            </li>
+            <li>
+                <label>Date</label>
+                @Html.TextBoxFor(m => m.Event.Date, new {id = "date"})
+                @Html.ValidationMessage("Date")
+            </li>
+            <li>
+                <label>Title</label>
+                @Html.TextBoxFor(m => m.Event.Title)
+                @Html.ValidationMessage("Title")
+            </li>
+            <li>
+                <label>Description</label>
+                @Html.TextAreaFor(m => m.Event.Description)
+                @Html.ValidationMessage("Description")
+            </li>
+            <li>
+                <label></label>
+                <input type="submit" value="Add Event" class="button" />
+            </li>
+        </ul>
+    </div>
+    
+    @Html.HiddenFor(m => m.Events.Page)
+
+</form>
+
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.17.min.js")"></script>
+    
+    <script type="text/javascript">
+        $(function () {
+            $('#date').datepicker({dateFormat: 'dd/mm/yy'})
+        })
+    </script>
+}

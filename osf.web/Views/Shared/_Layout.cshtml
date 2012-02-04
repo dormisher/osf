@@ -13,11 +13,11 @@
 		<div id="header">
 			<div id="titleWrapper">
 				<p class="inlineBlock">
-					<a href="/"><img src="/content/images/logo_side.png"/></a>
+					<a href="/"><img src="/content/images/blue-logo.png"/></a>
 				</p>
 				<span>REGISTERED CHARITY NO. 1142543</span>
 				<ul id="nav" class="inlineBlock">
-					<li>@Html.ActionLink("ABOUT US", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("HOME", "Index", new {controller = "Home"})</li>
 					<li>@Html.ActionLink("MISSION", "Index", new {controller = "Home"})</li>
 					<li>@Html.ActionLink("STRATEGY", "Index", new {controller = "Home"})</li>
 					<li>@Html.ActionLink("WHY OSF?", "Index", new {controller = "Home"})</li>
@@ -35,10 +35,7 @@
 			<div id="footerWrapper">
 				<p>
 					© copyright 2012 Opportunity Sports Foundation (registered charity no 1142543) |
-					<a href="http://www.ekmpowershop.com/terms.asp" title="terms &amp; conditions">terms & conditions</a> | 
-					<a href="http://www.ekmpowershop.com/privacy.asp">privacy policy</a> | 
-					<a href="http://www.ekmpowershop.com/sitemap.asp">sitemap</a> | 
-					<a href="/admin">admin</a>
+					@Html.ActionLink("admin", "index", "admin")
 				</p>
 				<p>
 					
@@ -47,7 +44,7 @@
 		</div>
 	</body>
 	
-	<script type="text/javascript" src="/Scripts/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
 
 	@RenderSection("scripts", false)
 </html>
