@@ -48,7 +48,7 @@
 .nivo-caption {
 	position:absolute;
     width:100%;
-    height:50px;
+    height:auto;
 	right:0px;
 	bottom:0px;
 	background:#000;

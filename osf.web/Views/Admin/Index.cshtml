@@ -1,13 +1,14 @@
-﻿@model EventAdminModel
+﻿@model osf.web.Data.LatestEvent
 
 @section head
 {
-    <link rel="stylesheet" href="@Url.Content("~/Content/themes/base/minified/jquery.ui.datepicker.min.css")"/>
+    <link href="@Url.Content("~/Content/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css"/>
 
     <style>
         h2 { font-size:26px; margin:20px 0; padding-bottom:10px; }
         h3 {padding-bottom:10px;margin-bottom:10px; }
         .itemList label {width:150px; }
+        .itemList span { width:84%; }
     </style>
 }
 
@@ -26,18 +27,20 @@
             </li>
             <li>
                 <label>Date</label>
-                @Html.TextBoxFor(m => m.Event.Date, new {id = "date"})
-                @Html.ValidationMessage("Date")
+                @Html.TextBoxFor(m => m.Date, new {id = "date"})
+                @Html.ValidationMessageFor(m => m.Date)
             </li>
             <li>
                 <label>Title</label>
-                @Html.TextBoxFor(m => m.Event.Title)
-                @Html.ValidationMessage("Title")
+                @Html.TextBoxFor(m => m.Title)
+                @Html.ValidationMessageFor(m => m.Title)
             </li>
             <li>
                 <label>Description</label>
-                @Html.TextAreaFor(m => m.Event.Description)
-                @Html.ValidationMessage("Description")
+                <span class="inlineBlock">
+                    @Html.ValidationMessageFor(m => m.Description)
+                    @Html.TextAreaFor(m => m.Description)
+                </span>
             </li>
             <li>
                 <label></label>
@@ -45,14 +48,12 @@
             </li>
         </ul>
     </div>
-    
-    @Html.HiddenFor(m => m.Events.Page)
 
 </form>
 
 @section scripts
 {
-    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui-1.8.17.min.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.js")"></script>
     
     <script type="text/javascript">
         $(function () {

@@ -3,8 +3,8 @@
 	<head>
 		<title>@ViewBag.Title</title>
 		
-		<link href="/content/reset.css" rel="stylesheet" type="text/css" />
-		<link href="/content/site.css" rel="stylesheet" type="text/css" />
+		<link href="@Url.Content("~/Content/reset.css")" rel="stylesheet" type="text/css"/>
+        <link href="@Url.Content("~/Content/site.css")" rel="stylesheet" type="text/css"/>
 		
 		@RenderSection("head", false)
 	</head>

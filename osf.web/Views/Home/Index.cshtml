@@ -16,7 +16,8 @@
 	    div#quote img { margin-left:50px; margin-bottom:-2px; }
 	    div#quote p { background-color:#fff; border-radius:10px; height:195px; padding:20px; font-size:13px; text-align:justify; }
 	    
-	    div#slider { text-align:center; width:615px; height:300px; margin:auto; margin-top:50px; }
+	    div#slider { text-align:center; width:615px; height:300px!important; overflow:hidden; margin:auto; margin-top:50px; }
+	    div#slider img {min-width:619px;}
 	    div.nivoSlider { -webkit-box-shadow:none!important; -moz-box-shadow:none!important; box-shadow:none!important; width:620px; height:300px; }
 	    
 	    div.boxes { width:1000px; margin:60px auto; border-top:1px solid #ddd; padding-top:20px; }
@@ -42,23 +43,42 @@
 }
 
 <div id="sliderQuote">
-
-	<div class="slider-wrapper theme-default inlineBlock">
-		<div id="slider" class="nivoSlider">
-			<a href=""><img src="/content/images/slider1.png" alt="" title="#caption1"/></a>
-			<a href=""><img src="/content/images/slider2.png" alt="" title="#caption2"/></a>
-			<a href=""><img src="/content/images/slider3.png" alt="" title="#caption3"/></a>
-		</div>
+    @*https://s3-eu-west-1.amazonaws.com/osf.latestevents/*@
+    
+    @if (Model.LatestEvents.Count > 0)
+    {
+        <div class="slider-wrapper theme-default inlineBlock">
+            <div id="slider" class="nivoSlider">
+            @foreach (var e in Model.LatestEvents)
+            {
+                <img src="https://s3-eu-west-1.amazonaws.com/osf.latestevents/@(e.Id + e.FileExtension)" alt="" title="#@e.Id"/>
+            }
+            </div>
+            @foreach (var e in Model.LatestEvents)
+            {
+                <div id="@e.Id" class="nivo-html-caption">@e.Description</div>
+            }
+        </div>
+    }
+    else
+    {
+        <div class="slider-wrapper theme-default inlineBlock">
+		    <div id="slider" class="nivoSlider">
+			    <a href=""><img src="/content/images/slider1.png" alt="" title="#caption1"/></a>
+			    <a href=""><img src="/content/images/slider2.png" alt="" title="#caption2"/></a>
+			    <a href=""><img src="/content/images/slider3.png" alt="" title="#caption3"/></a>
+		    </div>
 			<div id="caption1" class="nivo-html-caption">
-			Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-		</div>
-		<div id="caption2" class="nivo-html-caption">
-			Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-		</div>
-		<div id="caption3" class="nivo-html-caption">
-			Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt.
-		</div>
-	</div>
+			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
+		    </div>
+		    <div id="caption2" class="nivo-html-caption">
+			    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+		    </div>
+		    <div id="caption3" class="nivo-html-caption">
+			    Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt.
+		    </div>
+	    </div>
+    }
 	
 	<div id="quote" class="inlineBlock">
 		<h3>Chris Holland</h3>
