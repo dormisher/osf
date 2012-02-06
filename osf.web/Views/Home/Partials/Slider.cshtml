@@ -12,7 +12,7 @@
         @foreach (var e in Model)
         {
             <div id="@e.Id" class="nivo-html-caption">
-                @e.Title <span class="date">(@e.Date.Value.ToShortDateString())</span> - @e.Description @Html.ActionLink("read more →", "index", "events")
+                <span class="bold">@e.Title</span> <span class="date">(@e.Date.Value.ToShortDateString())</span> - @e.Description @Html.ActionLink("read more →", "index", "events")
             </div>
         }
     </div>

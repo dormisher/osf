@@ -1,9 +1,7 @@
 ﻿using System.Drawing;
 using System.Web;
 using System.Web.Mvc;
-using ImageResizer;
 using osf.web.Data;
-using osf.web.Models;
 using osf.web.Services;
 
 namespace osf.web.Controllers
@@ -15,6 +13,8 @@ namespace osf.web.Controllers
 
         public ActionResult Index(int page = 1)
         {
+            ViewBag.Page = page;
+
             return View();
         }
 
@@ -33,7 +33,7 @@ namespace osf.web.Controllers
             return RedirectToAction("index");
         }
 
-        public ActionResult PagedEvents(int page = 1)
+        public ActionResult PagedEvents(int page)
         {
             return PartialView("Partials/PagedEvents", _eventService.LoadPagedEvents(page));
         }

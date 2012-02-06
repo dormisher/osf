@@ -17,7 +17,7 @@ namespace osf.web.Data
 
         public PagedEventsModel LoadPagedEvents(int page, int take)
         {
-            var events = LatestEvents.Skip(page - 1 * take).Take(take).ToList();
+            var events = LatestEvents.OrderByDescending(e => e.Date).Skip((page - 1) * take).Take(take).ToList();
             var count = LatestEvents.Count();
 
             return new PagedEventsModel

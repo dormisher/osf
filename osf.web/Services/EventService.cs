@@ -34,7 +34,7 @@ namespace osf.web.Services
 
         internal List<LatestEvent> LoadEvents(int n)
         {
-            return _db.LatestEvents.Take(n).ToList();
+            return _db.LatestEvents.OrderByDescending(e => e.Date).Take(n).ToList();
         }
 
         internal PagedEventsModel LoadPagedEvents(int page)

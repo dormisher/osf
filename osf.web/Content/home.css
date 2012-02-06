@@ -7,7 +7,7 @@ div#quote span { display:block; font-size:14px; font-style:italic; color:#eee; }
 div#quote img { margin-left:50px; margin-bottom:-2px; }
 div#quote p { background-color:#fff; border-radius:10px; height:195px; padding:20px; font-size:13px; text-align:justify; }
 	    
-div#slider { text-align:center; width:615px; height:300px!important; overflow:hidden; margin:auto; margin-top:50px; }
+div#slider { text-align:center; width:615px; height:300px!important; margin:auto; margin-top:50px; }
 div#slider img {min-width:619px;}
 div#slider p { line-height:1.8; }
 div#slider .date {font-weight:bold;}
