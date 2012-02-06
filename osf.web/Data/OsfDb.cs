@@ -10,13 +10,10 @@ namespace osf.web.Data
 
         public OsfDb()
         {
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<OsfDb>());   
+            //Database.SetInitializer(new DropCreateDatabaseIfModelChanges<OsfDb>());
         }
 
-        protected override void OnModelCreating(DbModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<LatestEvent>().HasKey(e => e.Id);
-        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder) { }
 
         public PagedEventsModel LoadPagedEvents(int page, int take)
         {

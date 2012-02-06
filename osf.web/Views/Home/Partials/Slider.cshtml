@@ -1,0 +1,29 @@
+﻿@model List<osf.web.Data.LatestEvent>
+    
+@if (Model.Count > 0)
+{
+    <div class="slider-wrapper theme-default inlineBlock">
+        <div id="slider" class="nivoSlider">
+        @foreach (var e in Model)
+        {
+            <img src="https://s3-eu-west-1.amazonaws.com/osf.latestevents/@(e.Id).jpg" alt="" title="#@e.Id"/>
+        }
+        </div>
+        @foreach (var e in Model)
+        {
+            <div id="@e.Id" class="nivo-html-caption">
+                @e.Title <span class="date">(@e.Date.Value.ToShortDateString())</span> - @e.Description @Html.ActionLink("read more →", "index", "events")
+            </div>
+        }
+    </div>
+}
+else
+{
+    <div class="slider-wrapper theme-default inlineBlock">
+		<div id="slider" class="nivoSlider">
+			<img src="/content/images/slider1.png"/>
+			<img src="/content/images/slider2.png"/>
+			<img src="/content/images/slider3.png"/>
+		</div>
+	</div>
+}

@@ -2,83 +2,13 @@
 
 @section head
 {
-	<link rel="stylesheet" href="/Content/nivo-slider.css" type="text/css" media="screen"/>
-	<link rel="stylesheet" href="/Scripts/plugins/themes/default/default.css" type="text/css" media="screen"/>
-	
-	<style>
-	    div#content { width:auto; height:auto; margin:auto; }
-	    
-	    div#sliderQuote { width:1000px; margin:auto; }
-	    
-	    div#quote { vertical-align:top; margin-top:50px; padding:10px; width:330px; height:285px; margin-left:26px; background-color:#5270A1; border-radius:10px; }
-	    div#quote h3 { font-size:14px; font-style:italic; color:#fff; font-weight:bold; margin-bottom:5px; }
-	    div#quote span { display:block; font-size:14px; font-style:italic; color:#eee; }
-	    div#quote img { margin-left:50px; margin-bottom:-2px; }
-	    div#quote p { background-color:#fff; border-radius:10px; height:195px; padding:20px; font-size:13px; text-align:justify; }
-	    
-	    div#slider { text-align:center; width:615px; height:300px!important; overflow:hidden; margin:auto; margin-top:50px; }
-	    div#slider img {min-width:619px;}
-	    div.nivoSlider { -webkit-box-shadow:none!important; -moz-box-shadow:none!important; box-shadow:none!important; width:620px; height:300px; }
-	    
-	    div.boxes { width:1000px; margin:60px auto; border-top:1px solid #ddd; padding-top:20px; }
-	    div.boxes h2 { font-size:22px; color:#353535; margin-bottom:20px; }
-	    div.boxes a { color:#00AFEF; font-size:14px; padding:3px 5px; margin-bottom:3px; }
-	    div.boxes a:hover { background-color:#00AFEF; color:#fff; }	    
-	    
-	    div.boxes ul li { display:inline-block; zoom:1; *display:inline; width:230px; margin-right:20px; background-color:#fff; border-right:1px solid #eee; 
-	                       border-bottom:2px solid #eee; height:300px; vertical-align:top; }
-		div.boxes ul li.last { margin-right:0; }
-	    div.boxes .image { height:150px; overflow:hidden; }
-	    div.boxes .info { padding:10px; height:100px; }
-	    div.boxes .info h3 { font-size:14px; color:#353535; margin-bottom:10px; }
-	    div.boxes .info p { color:#606060; font-size:12px; }
-	    div.boxes .readMore { float:right; margin-right:5px; font-size:12px; }
-	    
-	    div#quoteWrapper { width:1000px; margin:auto; overflow:auto; text-align:justify; border-top:1px solid #ddd; padding-top:40px; }
-	    div#quoteWrapper h2 { font-size:22px; margin-bottom:30px; color:#353535; margin-left:5px; }
-		div#quoteWrapper #profile { height:165px; border:1px solid #DDD; padding:5px; background-color:white; float:left; margin-right:20px; }
-		div#quoteWrapper p { font-size:13px; line-height:1.8; margin-bottom:10px; }
-		div#quoteWrapper div#speechWrapper { width:675px; }
-	</style>
+	<link rel="stylesheet" href="@Url.Content("~/Content/nivo-slider.css")" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="@Url.Content("~/Scripts/plugins/themes/default/default.css")" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/home.css")" type="text/css"/>
 }
 
 <div id="sliderQuote">
-    @*https://s3-eu-west-1.amazonaws.com/osf.latestevents/*@
-    
-    @if (Model.LatestEvents.Count > 0)
-    {
-        <div class="slider-wrapper theme-default inlineBlock">
-            <div id="slider" class="nivoSlider">
-            @foreach (var e in Model.LatestEvents)
-            {
-                <img src="https://s3-eu-west-1.amazonaws.com/osf.latestevents/@(e.Id + e.FileExtension)" alt="" title="#@e.Id"/>
-            }
-            </div>
-            @foreach (var e in Model.LatestEvents)
-            {
-                <div id="@e.Id" class="nivo-html-caption">@e.Description</div>
-            }
-        </div>
-    }
-    else
-    {
-        <div class="slider-wrapper theme-default inlineBlock">
-		    <div id="slider" class="nivoSlider">
-			    <a href=""><img src="/content/images/slider1.png" alt="" title="#caption1"/></a>
-			    <a href=""><img src="/content/images/slider2.png" alt="" title="#caption2"/></a>
-			    <a href=""><img src="/content/images/slider3.png" alt="" title="#caption3"/></a>
-		    </div>
-			<div id="caption1" class="nivo-html-caption">
-			    Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.
-		    </div>
-		    <div id="caption2" class="nivo-html-caption">
-			    Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
-		    </div>
-		    <div id="caption3" class="nivo-html-caption">
-			    Typi non habent claritatem insitam; est usus legentis in iis qui facit eorum claritatem. Investigationes demonstraverunt.
-		    </div>
-	    </div>
-    }
+    @Html.Partial("Partials/Slider", Model.LatestEvents)
 	
 	<div id="quote" class="inlineBlock">
 		<h3>Chris Holland</h3>

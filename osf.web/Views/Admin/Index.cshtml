@@ -22,8 +22,10 @@
         <ul class="itemList">
             <li>
                 <label>Image</label>
-                <input type="file" name="Image"/>
-                @Html.ValidationMessage("Image")
+                <span class="inlineBlock">
+                    @Html.ValidationMessage("image")
+                    <input type="file" name="image"/>
+                </span>
             </li>
             <li>
                 <label>Date</label>

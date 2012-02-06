@@ -7,8 +7,6 @@ namespace osf.web.Data
     {
         public int Id { get; set; }
 
-        public string FileExtension { get; set; }
-
         [Required(ErrorMessage = "enter the title of the event")]
         public string Title { get; set; }
 

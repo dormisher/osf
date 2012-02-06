@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -7,6 +8,7 @@ using System.Web;
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
+using ImageResizer;
 using osf.web.Data;
 using osf.web.Models;
 
@@ -18,16 +20,16 @@ namespace osf.web.Services
 
         private const string LatestNewsBucket = "osf.latestevents";
         private const string ServiceUrl = "s3-eu-west-1.amazonaws.com";
-        private const string BucketUrl = "osf.latestevents.s3-eu-west-1.amazonaws.com";
 
         internal void AddEvent(LatestEvent latestEvent, HttpPostedFileBase image)
         {
-            latestEvent.FileExtension = Path.GetExtension(image.FileName);
+            using (Stream imageStream = ResizeImage(image))
+            {
+                _db.LatestEvents.Add(latestEvent);
+                _db.SaveChanges();
 
-            _db.LatestEvents.Add(latestEvent);
-            _db.SaveChanges();
-
-            UploadImage(latestEvent, image);
+                UploadImage(latestEvent, imageStream);
+            }
         }
 
         internal List<LatestEvent> LoadEvents(int n)
@@ -40,18 +42,18 @@ namespace osf.web.Services
             return _db.LoadPagedEvents(page, 5);
         }
 
-        private void UploadImage(LatestEvent latestEvent, HttpPostedFileBase image)
+        private void UploadImage(LatestEvent latestEvent, Stream image)
         {
             try
             {
                 using (AmazonS3 client = GetS3Client())
                 {
-                    string key = latestEvent.Id.ToString() + latestEvent.FileExtension;
+                    string key = latestEvent.Id.ToString() + ".jpg";
 
                     var putImageRequest = new PutObjectRequest();
                     putImageRequest.WithBucketName(LatestNewsBucket)
                                    .WithKey(key)
-                                   .WithInputStream(image.InputStream);
+                                   .WithInputStream(image);
 
                     using (S3Response response = client.PutObject(putImageRequest))
                     {
@@ -80,6 +82,23 @@ namespace osf.web.Services
         private AmazonS3 GetS3Client()
         {
             return AWSClientFactory.CreateAmazonS3Client(new AmazonS3Config {ServiceURL = ServiceUrl});
+        }
+
+        private Stream ResizeImage(HttpPostedFileBase file)
+        {
+            var image = Image.FromStream(file.InputStream);
+
+            if (image.Width == 620)
+            {
+                return file.InputStream;
+            }
+
+            file.InputStream.Seek(0, SeekOrigin.Begin);
+
+            var ms = new MemoryStream();
+            ImageBuilder.Current.Build(file, ms, new ResizeSettings("maxwidth=620&minheight300&format=jpg"));
+
+            return ms;
         }
     }
 }
