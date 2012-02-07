@@ -20,8 +20,8 @@
     {
         @Html.ActionLink("previous", "index", new { controller = "admin", page = Model.Page - 1 })
     }
-    page @(Model.Page) of @((Model.Total <= 5 ? 1 : Model.Total / 5).ToString())
-    @if (false == true)
+    page @Model.Page of @Model.TotalPages
+    @if (Model.Page == Model.TotalPages)
     {
         <span>next</span>
     }

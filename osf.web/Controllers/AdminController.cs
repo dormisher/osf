@@ -25,6 +25,7 @@ namespace osf.web.Controllers
 
             if (!ModelState.IsValid)
             {
+            	ViewBag.Page = 1;
                 return View(newEvent);
             }
 
@@ -33,7 +34,7 @@ namespace osf.web.Controllers
             return RedirectToAction("index");
         }
 
-        public ActionResult PagedEvents(int page)
+        public ActionResult PagedEvents(int page = 1)
         {
             return PartialView("Partials/PagedEvents", _eventService.LoadPagedEvents(page));
         }

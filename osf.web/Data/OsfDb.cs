@@ -23,7 +23,7 @@ namespace osf.web.Data
             return new PagedEventsModel
                        {
                            LatestEvents = events,
-                           Total = count,
+						   TotalPages = count % take == 0 ? count / take : count / take + 1,
                            Page = page
                        };
         }
