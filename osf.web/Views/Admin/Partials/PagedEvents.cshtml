@@ -1,0 +1,32 @@
+﻿@model PagedEventsModel
+    
+<ul id="events">
+@foreach (var e in Model.LatestEvents)
+{
+    <li class="padded fullBorder">
+        <h3>@e.Title (@e.Date.Value.ToShortDateString()) @Html.ActionLink("[edit]", "edit", "admin") @Html.ActionLink("[delete]", "delete", "admin")</h3>
+        <img src="https://s3-eu-west-1.amazonaws.com/osf.latestevents/@(e.Id).jpg"/>
+        <span>@e.Description</span>
+    </li>
+}
+</ul>
+
+<div id="paging">
+    @if (Model.Page == 1)
+    {
+        <span>previous</span>
+    }
+    else
+    {
+        @Html.ActionLink("previous", "index", new { controller = "admin", page = Model.Page - 1 })
+    }
+    page @(Model.Page) of @((Model.Total <= 5 ? 1 : Model.Total / 5).ToString())
+    @if (false == true)
+    {
+        <span>next</span>
+    }
+    else
+    {
+        @Html.ActionLink("next", "index", new { controller = "admin", page = Model.Page + 1 })
+    }
+</div>
