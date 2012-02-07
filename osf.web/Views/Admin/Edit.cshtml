@@ -1,0 +1,64 @@
+﻿@model osf.web.Data.LatestEvent
+
+@section head
+{
+	<link href="@Url.Content("~/Content/jquery-ui/jquery-ui.css")" rel="stylesheet" type="text/css"/>
+	<link href="@Url.Content("~/Content/admin.css")" rel="stylesheet" type="text/css"/>
+}
+
+<h2>Latest Events</h2>
+
+<form method="POST" enctype="multipart/form-data">
+    
+	<div class="fullBorder padded">
+		<h3 class="bottomBorder">Edit Event</h3>
+
+		<ul class="itemList">
+			<li>
+				<label>Image</label>
+				<span class="inlineBlock">
+					@Html.ValidationMessage("image")
+					<div style="width:620px;height:300px;overflow:hidden">
+						<img src="https://s3-eu-west-1.amazonaws.com/osf.latestevents/@(Model.Id).jpg"/>
+					</div>
+					<input type="file" name="image"/>
+				</span>
+			</li>
+			<li>
+				<label>Date</label>
+				@Html.TextBoxFor(m => m.Date, new {id = "date", @readonly = "true"})
+				@Html.ValidationMessageFor(m => m.Date)
+			</li>
+			<li>
+				<label>Title</label>
+				@Html.TextBoxFor(m => m.Title)
+				@Html.ValidationMessageFor(m => m.Title)
+			</li>
+			<li>
+				<label>Description</label>
+				<span class="inlineBlock">
+					@Html.ValidationMessageFor(m => m.Description)
+					@Html.TextAreaFor(m => m.Description)
+				</span>
+			</li>
+			<li>
+				<label></label>
+				<input type="submit" value="Add Event" class="button" />
+			</li>
+		</ul>
+	</div>
+	
+	@Html.HiddenFor(m => m.Id)
+
+</form>
+
+@section scripts
+{
+    <script type="text/javascript" src="@Url.Content("~/Scripts/jquery-ui.js")"></script>
+    
+    <script type="text/javascript">
+    	$(function () {
+    		$('#date').datepicker({ dateFormat: 'dd/mm/yy' })
+    	})
+    </script>
+}

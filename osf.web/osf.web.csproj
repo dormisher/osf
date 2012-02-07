@@ -88,6 +88,7 @@
     <Compile Include="Services\EventService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\admin.css" />
     <Content Include="Content\home.css" />
     <Content Include="Content\images\blue-logo.png" />
     <Content Include="Content\images\home\fb.jpg" />
@@ -176,7 +177,9 @@
   <ItemGroup>
     <Content Include="Views\Home\Partials\Slider.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Views\Admin\Edit.cshtml" />
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

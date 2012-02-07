@@ -100,5 +100,35 @@ namespace osf.web.Services
 
             return ms;
         }
-    }
+
+		internal LatestEvent Load(int id)
+		{
+			return _db.LatestEvents.Find(id);
+		}
+
+		internal void Delete(int id)
+		{
+			_db.LatestEvents.Remove(Load(id));
+			_db.SaveChanges();
+		}
+
+		internal void Edit(LatestEvent latestEvent, HttpPostedFileBase image)
+		{
+			LatestEvent e = _db.LatestEvents.Find(latestEvent.Id);
+
+			if (image.ContentLength > 0)
+			{
+				using (Stream imageStream = ResizeImage(image))
+				{
+					UploadImage(e, imageStream);
+				}
+			}
+
+			e.Date = latestEvent.Date;
+			e.Description = latestEvent.Description;
+			e.Title = latestEvent.Title;
+
+			_db.SaveChanges();
+		}
+	}
 }

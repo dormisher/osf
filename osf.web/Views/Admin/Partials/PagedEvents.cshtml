@@ -4,7 +4,11 @@
 @foreach (var e in Model.LatestEvents)
 {
     <li class="padded fullBorder">
-        <h3>@e.Title (@e.Date.Value.ToShortDateString()) @Html.ActionLink("[edit]", "edit", "admin") @Html.ActionLink("[delete]", "delete", "admin")</h3>
+		<h3>
+			@e.Title (@e.Date.Value.ToShortDateString())
+			@Html.ActionLink("[edit]", "edit", new {controller = "admin", id = e.Id})
+			@Html.ActionLink("[delete]", "delete", new { controller = "admin", id = e.Id })
+		</h3>
         <img src="https://s3-eu-west-1.amazonaws.com/osf.latestevents/@(e.Id).jpg"/>
         <span>@e.Description</span>
     </li>
