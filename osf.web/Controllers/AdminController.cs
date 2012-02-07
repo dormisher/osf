@@ -2,6 +2,7 @@
 using System.Web;
 using System.Web.Mvc;
 using osf.web.Data;
+using osf.web.Models;
 using osf.web.Services;
 
 namespace osf.web.Controllers
@@ -19,9 +20,12 @@ namespace osf.web.Controllers
         }
 
         [HttpPost]
-        public ActionResult Index(LatestEvent newEvent)
+        public ActionResult Index(LatestEventModel newEvent)
         {
-            ValidateAddEventImage();
+            var image = Request.Files["image"];
+
+            _eventService.ValidateAddEventImage(image, ModelState);
+            _eventService.ValidateEvent(newEvent, ModelState);
 
             if (!ModelState.IsValid)
             {
@@ -29,7 +33,7 @@ namespace osf.web.Controllers
                 return View(newEvent);
             }
 
-            _eventService.AddEvent(newEvent, Request.Files["image"]);
+            _eventService.AddEvent(newEvent, image);
 
             return RedirectToAction("index");
         }
@@ -52,9 +56,12 @@ namespace osf.web.Controllers
 		}
 
 		[HttpPost]
-		public ActionResult Edit(LatestEvent latestEvent)
+        public ActionResult Edit(LatestEventModel latestEvent)
 		{
-			ValidateEditEventImage();
+		    var image = Request.Files["image"];
+
+			_eventService.ValidateEditEventImage(image, ModelState);
+            _eventService.ValidateEvent(latestEvent, ModelState);
 
 			if (!ModelState.IsValid)
 			{
@@ -62,49 +69,9 @@ namespace osf.web.Controllers
 				return View(latestEvent);
 			}
 
-			_eventService.Edit(latestEvent, Request.Files["image"]);
+			_eventService.Edit(latestEvent, image);
 
 			return RedirectToAction("index");
-		}
-
-		// private validation methods etc
-
-		private void ValidateEditEventImage()
-		{
-			HttpPostedFileBase file = Request.Files["image"];
-
-			if (file.ContentLength > 0)
-			{
-				ValidateImageSize(file);
-			}
-		}
-
-        private void ValidateAddEventImage()
-        {
-            HttpPostedFileBase file = Request.Files["image"];
-
-            if (file == null ||file.ContentLength == 0)
-            {
-                ModelState.AddModelError("image", "Please upload an image");
-            }
-            else
-            {
-            	ValidateImageSize(file);
-            }
-        }
-
-		private void ValidateImageSize(HttpPostedFileBase file)
-		{
-			var image = Image.FromStream(file.InputStream, true, true);
-
-			if (image.Width < 620)
-			{
-				ModelState.AddModelError("image", "Image must be at least 620px wide");
-			}
-			else if (image.Height < 300)
-			{
-				ModelState.AddModelError("image", "Image must be at least 300px high");
-			}
 		}
     }
 }

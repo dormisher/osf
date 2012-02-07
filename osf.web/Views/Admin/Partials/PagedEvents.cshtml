@@ -5,7 +5,7 @@
 {
     <li class="padded fullBorder">
 		<h3>
-			@e.Title (@e.Date.Value.ToShortDateString())
+			@e.Title (@e.Date)
 			@Html.ActionLink("[edit]", "edit", new {controller = "admin", id = e.Id})
 			@Html.ActionLink("[delete]", "delete", new { controller = "admin", id = e.Id })
 		</h3>

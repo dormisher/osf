@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
+using System.Web.Mvc;
 using Amazon;
 using Amazon.S3;
 using Amazon.S3.Model;
@@ -21,25 +22,129 @@ namespace osf.web.Services
         private const string LatestNewsBucket = "osf.latestevents";
         private const string ServiceUrl = "s3-eu-west-1.amazonaws.com";
 
-        internal void AddEvent(LatestEvent latestEvent, HttpPostedFileBase image)
+        public void ValidateEvent(LatestEventModel m, ModelStateDictionary modelState)
         {
-            using (Stream imageStream = ResizeImage(image))
+            if (string.IsNullOrEmpty(m.Description))
             {
-                _db.LatestEvents.Add(latestEvent);
-                _db.SaveChanges();
+                modelState.AddModelError("Description", "enter a description");
+            }
 
-                UploadImage(latestEvent, imageStream);
+            if (string.IsNullOrEmpty(m.Title))
+            {
+                modelState.AddModelError("Title", "enter a title");
+            }
+
+            DateTime d;
+            if (!DateTime.TryParse(m.Date, out d))
+            {
+                modelState.AddModelError("Date", "enter a valid date");
             }
         }
 
-        internal List<LatestEvent> LoadEvents(int n)
+        public void ValidateEditEventImage(HttpPostedFileBase file, ModelStateDictionary modelState)
         {
-            return _db.LatestEvents.OrderByDescending(e => e.Date).Take(n).ToList();
+            if (file.ContentLength > 0)
+            {
+                ValidateImageSize(file, modelState);
+            }
+        }
+
+        public void ValidateAddEventImage(HttpPostedFileBase file, ModelStateDictionary modelState)
+        {
+            if (file == null || file.ContentLength == 0)
+            {
+                modelState.AddModelError("image", "Please upload an image");
+            }
+            else
+            {
+                ValidateImageSize(file, modelState);
+            }
+        }
+
+        internal void AddEvent(LatestEventModel latestEvent, HttpPostedFileBase image)
+        {
+            using (Stream imageStream = ResizeImage(image))
+            {
+                var e = _db.LatestEvents.Add(new LatestEvent
+                                                 {
+                                                     Title = latestEvent.Title,
+                                                     Date = DateTime.Parse(latestEvent.Date),
+                                                     Description = latestEvent.Description
+                                                 });
+                _db.SaveChanges();
+
+                UploadImage(e, imageStream);
+            }
+        }
+
+        internal List<LatestEventModel> LoadEvents(int n)
+        {
+            return _db.LatestEvents.OrderByDescending(e => e.Date).Take(n).Select(ToLatestEventModel).ToList();
         }
 
         internal PagedEventsModel LoadPagedEvents(int page)
         {
-            return _db.LoadPagedEvents(page, 5);
+            return LoadPagedEvents(page, 5);
+        }
+        internal LatestEventModel Load(int id)
+        {
+            return ToLatestEventModel(_db.LatestEvents.Find(id));
+        }
+
+        internal void Delete(int id)
+        {
+            DeleteImage(id);
+
+            _db.LatestEvents.Remove(_db.LatestEvents.Find(id));
+            _db.SaveChanges();
+        }
+
+        internal void Edit(LatestEventModel latestEvent, HttpPostedFileBase image)
+        {
+            LatestEvent e = _db.LatestEvents.Find(latestEvent.Id);
+
+            if (image.ContentLength > 0)
+            {
+                DeleteImage(latestEvent.Id);
+
+                using (Stream imageStream = ResizeImage(image))
+                {
+                    UploadImage(e, imageStream);
+                }
+            }
+
+            e.Date = DateTime.Parse(latestEvent.Date);
+            e.Description = latestEvent.Description;
+            e.Title = latestEvent.Title;
+
+            _db.SaveChanges();
+        }
+
+        private PagedEventsModel LoadPagedEvents(int page, int take)
+        {
+            var events = _db.LatestEvents.OrderByDescending(e => e.Date).Skip((page - 1) * take).Take(take).ToList();
+            var count = _db.LatestEvents.Count();
+            int totalPages = count % take == 0 ? count / take : count / take + 1;
+
+            if (count == 0) totalPages = 1;
+
+            return new PagedEventsModel
+            {
+                LatestEvents = events.Select(ToLatestEventModel).ToList(),
+                TotalPages = totalPages,
+                Page = page
+            };
+        }
+
+        private LatestEventModel ToLatestEventModel(LatestEvent e)
+        {
+            return new LatestEventModel
+                       {
+                           Date = e.Date.ToShortDateString(),
+                           Description = e.Description,
+                           Title = e.Title,
+                           Id = e.Id
+                       };
         }
 
         private void UploadImage(LatestEvent latestEvent, Stream image)
@@ -79,9 +184,44 @@ namespace osf.web.Services
             }
         }
 
+        private void DeleteImage(int id)
+        {
+            try
+            {
+                var deleteRequest = new DeleteObjectRequest();
+
+                string key = id.ToString() + ".jpg";
+
+                deleteRequest.WithBucketName(LatestNewsBucket).WithKey(key);
+
+                using (DeleteObjectResponse response = GetS3Client().DeleteObject(deleteRequest))
+                {
+                    WebHeaderCollection headers = response.Headers;
+                    foreach (string k in headers.Keys)
+                    {
+                        Console.WriteLine("Response Header: {0}, Value: {1}", k, headers.Get(k));
+                    }
+                }
+            }
+            catch (AmazonS3Exception amazonS3Exception)
+            {
+                if (amazonS3Exception.ErrorCode != null &&
+                    (amazonS3Exception.ErrorCode.Equals("InvalidAccessKeyId") ||
+                    amazonS3Exception.ErrorCode.Equals("InvalidSecurity")))
+                {
+                    Console.WriteLine("Please check the provided AWS Credentials.");
+                    Console.WriteLine("If you haven't signed up for Amazon S3, please visit http://aws.amazon.com/s3");
+                }
+                else
+                {
+                    Console.WriteLine("An error occurred with the message '{0}' when deleting an object", amazonS3Exception.Message);
+                }
+            }
+        }
+
         private AmazonS3 GetS3Client()
         {
-            return AWSClientFactory.CreateAmazonS3Client(new AmazonS3Config {ServiceURL = ServiceUrl});
+            return AWSClientFactory.CreateAmazonS3Client(new AmazonS3Config { ServiceURL = ServiceUrl });
         }
 
         private Stream ResizeImage(HttpPostedFileBase file)
@@ -101,34 +241,18 @@ namespace osf.web.Services
             return ms;
         }
 
-		internal LatestEvent Load(int id)
-		{
-			return _db.LatestEvents.Find(id);
-		}
+        private void ValidateImageSize(HttpPostedFileBase file, ModelStateDictionary modelState)
+        {
+            var image = Image.FromStream(file.InputStream, true, true);
 
-		internal void Delete(int id)
-		{
-			_db.LatestEvents.Remove(Load(id));
-			_db.SaveChanges();
-		}
-
-		internal void Edit(LatestEvent latestEvent, HttpPostedFileBase image)
-		{
-			LatestEvent e = _db.LatestEvents.Find(latestEvent.Id);
-
-			if (image.ContentLength > 0)
-			{
-				using (Stream imageStream = ResizeImage(image))
-				{
-					UploadImage(e, imageStream);
-				}
-			}
-
-			e.Date = latestEvent.Date;
-			e.Description = latestEvent.Description;
-			e.Title = latestEvent.Title;
-
-			_db.SaveChanges();
-		}
+            if (image.Width < 620)
+            {
+                modelState.AddModelError("image", "Image must be at least 620px wide");
+            }
+            else if (image.Height < 300)
+            {
+                modelState.AddModelError("image", "Image must be at least 300px high");
+            }
+        }
 	}
 }

@@ -1,4 +1,4 @@
-﻿@model osf.web.Data.LatestEvent
+﻿@model LatestEventModel
 
 @section head
 {
@@ -17,8 +17,8 @@
             <li>
                 <label>Image</label>
                 <span class="inlineBlock">
-                    @Html.ValidationMessage("image")
                     <input type="file" name="image"/>
+                    @Html.ValidationMessage("image")
                 </span>
             </li>
             <li>
@@ -34,7 +34,7 @@
             <li>
                 <label>Description</label>
                 <span class="inlineBlock">
-                    @Html.ValidationMessageFor(m => m.Description)
+                    <span class="block">@Html.ValidationMessageFor(m => m.Description)</span>
                     @Html.TextAreaFor(m => m.Description)
                 </span>
             </li>

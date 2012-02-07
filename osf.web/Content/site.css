@@ -40,6 +40,7 @@ div#content { width:1000px; margin:auto; }
 .right { float:right; }
 .bold {font-weight:bold;}
 .italic {font-style:italic;}
+.block {display:block;}
 
 .itemList li { margin-bottom:10px; }
 .itemList label { display:inline-block; zoom:1; *display:inline; width:100px;vertical-align:top; }
