@@ -1,4 +1,4 @@
-﻿USE [db857eca4b815342bb9a459fec010cc67c]
+﻿USE [osf]
 GO
 /****** Object:  Table [dbo].[LatestEvents]    Script Date: 02/06/2012 12:33:44 ******/
 SET ANSI_NULLS ON
