@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -35,7 +36,7 @@ namespace osf.web.Services
             }
 
             DateTime d;
-            if (!DateTime.TryParse(m.Date, out d))
+            if (!DateTime.TryParseExact(m.Date, "dd/MM/yyyy", new CultureInfo("en-GB"), DateTimeStyles.None, out d))
             {
                 modelState.AddModelError("Date", "enter a valid date");
             }
