@@ -23,7 +23,9 @@ namespace osf.web.Services
         private const string LatestNewsBucket = "osf.latestevents";
         private const string ServiceUrl = "s3-eu-west-1.amazonaws.com";
 
-        public void ValidateEvent(LatestEventModel m, ModelStateDictionary modelState)
+		// validation
+
+        internal void ValidateEvent(LatestEventModel m, ModelStateDictionary modelState)
         {
             if (string.IsNullOrEmpty(m.Description))
             {
@@ -42,7 +44,7 @@ namespace osf.web.Services
             }
         }
 
-        public void ValidateEditEventImage(HttpPostedFileBase file, ModelStateDictionary modelState)
+        internal void ValidateEditEventImage(HttpPostedFileBase file, ModelStateDictionary modelState)
         {
             if (file.ContentLength > 0)
             {
@@ -50,7 +52,7 @@ namespace osf.web.Services
             }
         }
 
-        public void ValidateAddEventImage(HttpPostedFileBase file, ModelStateDictionary modelState)
+		internal void ValidateAddEventImage(HttpPostedFileBase file, ModelStateDictionary modelState)
         {
             if (file == null || file.ContentLength == 0)
             {
@@ -69,7 +71,7 @@ namespace osf.web.Services
                 var e = _db.LatestEvents.Add(new LatestEvent
                                                  {
                                                      Title = latestEvent.Title,
-                                                     Date = DateTime.Parse(latestEvent.Date),
+                                                     Date = ParseDate(latestEvent.Date),
                                                      Description = latestEvent.Description
                                                  });
                 _db.SaveChanges();
@@ -114,12 +116,14 @@ namespace osf.web.Services
                 }
             }
 
-            e.Date = DateTime.Parse(latestEvent.Date);
+            e.Date = ParseDate(latestEvent.Date);
             e.Description = latestEvent.Description;
             e.Title = latestEvent.Title;
 
             _db.SaveChanges();
         }
+
+		// private methods
 
         private PagedEventsModel LoadPagedEvents(int page, int take)
         {
@@ -255,5 +259,10 @@ namespace osf.web.Services
                 modelState.AddModelError("image", "Image must be at least 300px high");
             }
         }
+
+		private DateTime ParseDate(string date)
+		{
+			return DateTime.ParseExact(date, "dd/MM/yyyy", new CultureInfo("en-GB"), DateTimeStyles.None);
+		}
 	}
 }
