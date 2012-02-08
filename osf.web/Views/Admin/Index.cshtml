@@ -6,7 +6,7 @@
 	<link href="@Url.Content("~/Content/admin.css")" rel="stylesheet" type="text/css"/>
 }
 
-<h2>Latest Events</h2>
+<h2 class="bottomBorder">Latest Events</h2>
     
 <form method="POST" enctype="multipart/form-data">
     
@@ -46,8 +46,6 @@
     </div>
 
 </form>
-
-<h3 class="bottomBorder">All Events</h3>
 
 @Html.Action("PagedEvents", new { page = ViewBag.Page })
 

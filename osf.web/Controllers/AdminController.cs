@@ -40,7 +40,7 @@ namespace osf.web.Controllers
 		
         public ActionResult PagedEvents(int page = 1)
         {
-            return PartialView("Partials/PagedEvents", _eventService.LoadPagedEvents(page));
+            return PartialView("Partials/PagedEvents", _eventService.LoadPagedEvents(page, 5));
         }
 
 		public ActionResult Delete(int id)

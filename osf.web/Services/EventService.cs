@@ -85,10 +85,6 @@ namespace osf.web.Services
             return _db.LatestEvents.OrderByDescending(e => e.Date).Take(n).Select(ToLatestEventModel).ToList();
         }
 
-        internal PagedEventsModel LoadPagedEvents(int page)
-        {
-            return LoadPagedEvents(page, 5);
-        }
         internal LatestEventModel Load(int id)
         {
             return ToLatestEventModel(_db.LatestEvents.Find(id));
@@ -123,23 +119,23 @@ namespace osf.web.Services
             _db.SaveChanges();
         }
 
+		internal PagedEventsModel LoadPagedEvents(int page, int take)
+		{
+			var events = _db.LatestEvents.OrderByDescending(e => e.Date).Skip((page - 1) * take).Take(take).ToList();
+			var count = _db.LatestEvents.Count();
+			int totalPages = count % take == 0 ? count / take : count / take + 1;
+
+			if (count == 0) totalPages = 1;
+
+			return new PagedEventsModel
+			{
+				LatestEvents = events.Select(ToLatestEventModel).ToList(),
+				TotalPages = totalPages,
+				Page = page
+			};
+		}
+
 		// private methods
-
-        private PagedEventsModel LoadPagedEvents(int page, int take)
-        {
-            var events = _db.LatestEvents.OrderByDescending(e => e.Date).Skip((page - 1) * take).Take(take).ToList();
-            var count = _db.LatestEvents.Count();
-            int totalPages = count % take == 0 ? count / take : count / take + 1;
-
-            if (count == 0) totalPages = 1;
-
-            return new PagedEventsModel
-            {
-                LatestEvents = events.Select(ToLatestEventModel).ToList(),
-                TotalPages = totalPages,
-                Page = page
-            };
-        }
 
         private LatestEventModel ToLatestEventModel(LatestEvent e)
         {

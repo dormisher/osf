@@ -1,0 +1,51 @@
+﻿@model PagedEventsModel
+
+@section head
+{
+	<style>
+	    div.eventBox { width:477px; padding-bottom:20px; }
+	    div.eventBox:first-child { margin-right:40px; }
+	    div.eventBox div { vertical-align:top; }
+	    div.eventBox h3 { color:#353535; font-size:26px; margin:20px 0; }
+	    div.eventBox h3 span { color:#ccc; font-size:18px; margin-left:20px; }
+	    div.eventBox p { font-size:14px; }
+	    
+	    div.image { overflow:hidden; width:477px; height:200px;}
+	    div.image img { width:477px; }
+	</style>
+}
+
+<h2>Recent Events</h2>
+
+@if (Model.LatestEvents.Count > 0)
+{
+	<div class="bottomBorder">
+		@RenderEvent(Model.LatestEvents[0])
+		@if (Model.LatestEvents.Count > 1)
+		{
+			@RenderEvent(Model.LatestEvents[1])
+		}
+	</div>
+}
+
+@if (Model.LatestEvents.Count > 2)
+{
+	<div class="bottomBorder">
+		@RenderEvent(Model.LatestEvents[2])
+		@if (Model.LatestEvents.Count > 2)
+		{
+			@RenderEvent(Model.LatestEvents[3])
+		}
+	</div>
+}
+
+@helper RenderEvent(LatestEventModel e)
+{
+	<div class="eventBox inlineBlock">
+		<div class="image inlineBlock">
+			<img src='https://s3-eu-west-1.amazonaws.com/osf.latestevents/@(e.Id).jpg'/>
+		</div>
+		<h3>@e.Title <span>@e.Date</span></h3>
+		<p>@e.Description</p>
+	</div>
+}
