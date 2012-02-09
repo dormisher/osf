@@ -30,7 +30,9 @@
 		@RenderSection("breadcrumb", false)
 
 		<div id="content">
-			@RenderBody()
+			<div id="contentWrapper">	
+				@RenderBody()
+			</div>
 		</div>
 		
 		<div id="footer">

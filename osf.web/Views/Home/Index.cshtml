@@ -11,14 +11,10 @@
     @Html.Partial("Partials/Slider", Model.LatestEvents)
 	
 	<div id="quote" class="inlineBlock">
-		<h3>Chris Holland</h3>
-		<span>Footballer with Newcastle United</span>
+		<h3>@Model.Quote.Person</h3>
+		<span>@Model.Quote.Info</span>
 		<img src="@Url.Content("~/Content/images/home/triangle.png")"/>
-		<p>
-			Having seen the objectives of OSF and its charitable works, I felt so strongly about their work that I asked if I could get involved
-			on the coaching side. Having grown up around people from underprivileged backgrounds I have seen first hand how sport can make a huge
-			difference to peoples' lives. I hope to be able to provide youngsters with a chance to enjoy similar experiences to myself.
-		</p>
+		<p>@Model.Quote.Quote</p>
 	</div>
 
 </div>
@@ -83,7 +79,7 @@
 			As a professional footballer with Wolverhampton Wanderers and Blackburn Rovers I have seen first hand the huge benefits that sport can bring to the social
 			development of young people. It has been a privilege over the last thirty years to be heavily involved, on a voluntary basis, with young people from
 			privileged backgrounds along with young people who have been socially disadvantaged, disabled, or have offended. For me it was a natural progression
-			to set up <span class="bold">Sports Opportunity Foundation</span>.
+			to set up <span class="bold">Opportunity Sports Foundation</span>.
 		</p>
 		<p>
 			Involvement in sport has changed my life and provided me with opportunities that I could have only dreamed of. At OSF we have achieved significant success

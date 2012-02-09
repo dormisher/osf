@@ -9,7 +9,7 @@ namespace osf.web.Controllers
 
         public ActionResult Index(int page = 1)
         {
-            return View(_eventService.LoadPagedEvents(1, 4));
+            return View(_eventService.LoadPagedEvents(page, 4));
         }
     }
 }

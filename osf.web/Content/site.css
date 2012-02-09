@@ -1,5 +1,5 @@
 
-body { font-family:Tahoma; color:#606060; font-size:16px; background-color:#FCFCFC; }
+body { font-family:Tahoma; color:#606060; font-size:16px; background-color:#C4CEDA; }
 
 a { text-decoration:none; }
 p { line-height:1.5; }
@@ -12,7 +12,7 @@ h3 { color:#09347A; }
 
 /* header */
 
-div#header { width:100%; background-color:#C4CEDA; }
+div#header { width:100%; }
 div#header #titleWrapper { width:1000px; margin:auto; padding-bottom:10px; }
 div#header #titleWrapper p { width:400px; }
 div#header #titleWrapper img { height:100px; margin-top:10px; }
@@ -25,7 +25,7 @@ ul#nav li a:hover { font-weight:bold;font-size:13px; }
 
 /* footer */
 
-div#footer { width:100%; height:200px; background-color:#C4CEDA;margin-top:50px; }
+div#footer { width:100%; height:200px; background-color:#C4CEDA; }
 div#footer #footerWrapper { width:1000px; margin:auto; text-align:center; padding-top:20px; }
 div#footer #footerWrapper p { font-size:12px; color:#09347A; }
 div#footer #footerWrapper a { color:#09347A; }
@@ -33,7 +33,8 @@ div#footer #footerWrapper a:hover { text-decoration:underline; }
 
 /* content */
 
-div#content { width:1000px; margin:auto; }
+div#content { background-color:#FCFCFC; padding-bottom:50px; padding-top:20px; }
+div#contentWrapper { width:1000px; height:auto; margin:auto; }
 
 /* classes */
 

@@ -3,6 +3,7 @@
 @section head
 {
 	<style>
+	    h2 { margin-top:40px; }
 	    div.eventBox { width:477px; padding-bottom:20px; }
 	    div.eventBox:first-child { margin-right:40px; }
 	    div.eventBox div { vertical-align:top; }
@@ -37,6 +38,11 @@
 			@RenderEvent(Model.LatestEvents[3])
 		}
 	</div>
+}
+
+@if (Model.TotalPages > 1)
+{
+	@Html.ActionLink("older →", "index", new {page = Model.Page + 1})
 }
 
 @helper RenderEvent(LatestEventModel e)
