@@ -39,18 +39,18 @@ namespace osf.web.Controllers
 					Info = "Coronation Street Actor",
 					Quote = "It is getting harder and harder for young people, particularly those who are disadvantaged, to grow up and escape the more negative influences infecting our streets. Organisations such as OSF who are focused on the provision of positive role models can only be a good thing in my opinion and I fully support what Opportunity Sports Foundation are trying to achieve."
 				});
-			quotes.Add(new QuoteModel
-				{
-					Person = "Abigail Wilson, age 15",
-					Info = "Participant in OSF Activity",
-					Quote = "It was the first time I had ever done Circuit Training and it was great. It was good fun but hard work, I hope I can continue doing sport now."
-				});
-			quotes.Add(new QuoteModel
-				{
-					Person = "Waqar Patel, age 17",
-					Info = "Participant in OSF Activity",
-					Quote = "I thought I was too old to enjoy sport but it was brilliant. The coaching that Opportunity Sports Foundation gave us was really good, can't wait untill the next session."
-				});
+			//quotes.Add(new QuoteModel
+			//    {
+			//        Person = "Abigail Wilson, age 15",
+			//        Info = "Participant in OSF Activity",
+			//        Quote = "It was the first time I had ever done Circuit Training and it was great. It was good fun but hard work, I hope I can continue doing sport now."
+			//    });
+			//quotes.Add(new QuoteModel
+			//    {
+			//        Person = "Waqar Patel, age 17",
+			//        Info = "Participant in OSF Activity",
+			//        Quote = "I thought I was too old to enjoy sport but it was brilliant. The coaching that Opportunity Sports Foundation gave us was really good, can't wait untill the next session."
+			//    });
 			quotes.Add(new QuoteModel
 				{
 					Person = "Shaun Beeley",

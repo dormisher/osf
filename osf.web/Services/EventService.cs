@@ -141,7 +141,7 @@ namespace osf.web.Services
         {
             return new LatestEventModel
                        {
-                           Date = e.Date.ToShortDateString(),
+                           Date = e.Date.ToString("dd/MM/yyyy"),
                            Description = e.Description,
                            Title = e.Title,
                            Id = e.Id

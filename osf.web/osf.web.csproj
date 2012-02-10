@@ -94,6 +94,7 @@
     <Content Include="Content\admin.css" />
     <Content Include="Content\home.css" />
     <Content Include="Content\images\blue-logo.png" />
+    <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\home\fb.jpg" />
     <Content Include="Content\images\home\flickr.jpg" />
     <Content Include="Content\images\home\latest1.png" />

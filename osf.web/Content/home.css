@@ -11,15 +11,18 @@ div#slider img {min-width:619px;}
 div#slider p { line-height:1.8; }
 div#slider .date {font-weight:bold;}
 
+div#sliderQuote{ margin-bottom:60px;}
+
 div.nivoSlider { -webkit-box-shadow:none!important; -moz-box-shadow:none!important; box-shadow:none!important; width:620px; height:300px; }
 	    
-div.boxes { margin:60px auto; border-top:1px solid #ddd; padding-top:20px; }
+div.boxes { margin:40px auto; }
 div.boxes h2 { font-size:22px; color:#353535; margin-bottom:20px; }
 div.boxes a { color:#00AFEF; font-size:14px; padding:3px 5px; margin-bottom:3px; }
-div.boxes a:hover { background-color:#00AFEF; color:#fff; }	    
+div.boxes a:hover { background-color:#00AFEF; color:#fff; }
+div.boxes img { width:100%;}
 	    
 div.boxes ul li { display:inline-block; zoom:1; *display:inline; width:230px; margin-right:20px; background-color:#fff; border-right:1px solid #eee; 
-	                border-bottom:2px solid #eee; height:300px; vertical-align:top; }
+	              border-bottom:2px solid #eee; height:300px; vertical-align:top; }
 div.boxes ul li.last { margin-right:0; }
 div.boxes .image { height:150px; overflow:hidden; }
 div.boxes .info { padding:10px; height:100px; }
@@ -27,7 +30,7 @@ div.boxes .info h3 { font-size:14px; color:#353535; margin-bottom:10px; }
 div.boxes .info p { color:#606060; font-size:12px; }
 div.boxes .readMore { float:right; margin-right:5px; font-size:12px; }
 	    
-div#quoteWrapper { margin:auto; overflow:auto; text-align:justify; border-top:1px solid #ddd; padding-top:40px; }
+div#quoteWrapper { margin:auto; overflow:auto; text-align:justify; padding-top:20px; }
 div#quoteWrapper h2 { font-size:22px; margin-bottom:30px; color:#353535; margin-left:5px; }
 div#quoteWrapper #profile { height:165px; border:1px solid #DDD; padding:5px; background-color:white; float:left; margin-right:20px; }
 div#quoteWrapper p { font-size:13px; line-height:1.8; margin-bottom:10px; }
