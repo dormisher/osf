@@ -8,10 +8,11 @@ namespace osf.web.Services
 		internal void SendFeedbackMail(FeedbackModel model)
 		{
 			var message = new MailMessage();
-			message.From = new MailAddress("grantapplication@opportunitysports.org");
+			message.From = new MailAddress("feedback@opportunitysports.org");
 			message.Body = string.Format("<h1>Question Submitted</h1><p>{0}</p><p>{1}</p><p>{2}</p>", model.Name, model.Email, model.Message);
 			//message.To.Add(new MailAddress("info@opportunitysports.org"));
 			message.To.Add(new MailAddress("dormisher@gmail.com"));
+			message.IsBodyHtml = true;
 
 			using (var smtpClient = new SmtpClient())
 			{
