@@ -50,9 +50,9 @@ div#contentWrapper { width:1000px; height:auto; margin:auto; }
 .itemList textarea { width:83%;height:100px; }
 .itemList .button {width:auto;}
 
-.button { text-decoration:none; padding:5px; text-align:center; border:1px solid #DDD; border-radius:4px; background-color:#EEE;
-          cursor:pointer; font-size:16px; display:inline-block; zoom:1; *display:inline; }
-.button:hover {border-color:#bbb; }
+.button { text-decoration:none; padding:5px; text-align:center; border:1px solid #BEBEBE; color:#606060; border-radius:8px; background-color:#F6F6F6;
+          cursor:pointer; font-size:16px; display:inline-block; zoom:1; *display:inline; padding:5px 15px; }
+.button:hover {border-color:#9e9e9e; }
 
 .field-validation-error {color:red;font-size:12px;}
 
