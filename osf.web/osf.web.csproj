@@ -98,6 +98,8 @@
     <Content Include="Content\home.css" />
     <Content Include="Content\images\blue-logo.png" />
     <Content Include="Content\images\favicon.ico" />
+    <Content Include="Content\images\fb.png" />
+    <Content Include="Content\images\fl.png" />
     <Content Include="Content\images\home\fb.jpg" />
     <Content Include="Content\images\home\flickr.jpg" />
     <Content Include="Content\images\home\latest1.png" />
@@ -112,6 +114,9 @@
     <Content Include="Content\images\home\triangle.png" />
     <Content Include="Content\images\home\twitter.jpg" />
     <Content Include="Content\images\home\youtube.jpg" />
+    <Content Include="Content\images\tw.png" />
+    <Content Include="Content\images\yt.png" />
+    <Content Include="Content\images\just-giving.png" />
     <Content Include="Content\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Content\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
