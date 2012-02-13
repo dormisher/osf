@@ -8,24 +8,10 @@ namespace osf.web.Controllers
 	{
 		MailService _mailService = new MailService();
 
-		public ActionResult Index()
-		{
-			return View();
-		}
-
 		[HttpPost]
-		public ActionResult Index(FeedbackModel model)
+		public void SendFeedback(string email, string message)
 		{
-			if (!ModelState.IsValid)
-			{
-				return View(model);
-			}
-
-			_mailService.SendFeedbackMail(model);
-
-			ViewBag.MessageSent = true;
-
-			return View();
+			_mailService.SendFeedbackMail(email, message);
 		}
 	}
 }

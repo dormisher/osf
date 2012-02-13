@@ -1,22 +1,21 @@
 ﻿using System.Net.Mail;
-using osf.web.Models;
 
 namespace osf.web.Services
 {
 	public class MailService
 	{
-		internal void SendFeedbackMail(FeedbackModel model)
+		internal void SendFeedbackMail(string email, string message)
 		{
-			var message = new MailMessage();
-			message.From = new MailAddress("feedback@opportunitysports.org");
-			message.Body = string.Format("<h1>Question Submitted</h1><p>{0}</p><p>{1}</p><p>{2}</p>", model.Name, model.Email, model.Message);
+			var msg = new MailMessage();
+			msg.From = new MailAddress("feedback@opportunitysports.org");
+			msg.Body = string.Format("<h1>Question Submitted</h1><p>{0}</p><p>{1}</p>", email, message);
 			//message.To.Add(new MailAddress("info@opportunitysports.org"));
-			message.To.Add(new MailAddress("dormisher@gmail.com"));
-			message.IsBodyHtml = true;
+			msg.To.Add(new MailAddress("dormisher@gmail.com"));
+			msg.IsBodyHtml = true;
 
 			using (var smtpClient = new SmtpClient())
 			{
-				smtpClient.Send(message);
+				smtpClient.Send(msg);
 			}
 		}
 

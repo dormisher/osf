@@ -21,9 +21,8 @@
 				<ul id="nav" class="inlineBlock">
 					<li>@Html.ActionLink("HOME", "Index", new {controller = "Home"})</li>
 					<li>@Html.ActionLink("ABOUT US", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("VIEW BROCHURES", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("OUR SUPPORTERS", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("CONTACT", "Index", new {controller = "Contact"})</li>
+					<li>@Html.ActionLink("BROCHURES", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("SUPPORTERS", "Index", new {controller = "Home"})</li>
 				</ul>
 			</div>
 		</div>
@@ -49,24 +48,12 @@
                     <h4>CONTACT DETAILS</h4>
                     <table>
                         <tr>
-                            <td style="width:100px;">Tel:</td>
+                            <td style="width:80px;">Tel:</td>
                             <td>01772 666999</td>
                         </tr>
                         <tr>
                             <td>Address:</td>
-                            <td>24 Some Road</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Preston</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>Lancs</td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td>PR25 3FF</td>
+                            <td>24 Some Road, Preston, Lancs, PR25 3GH</td>
                         </tr>
                     </table>
                 </div>
@@ -75,15 +62,22 @@
                     <a href="http://facebook.com"><img src="@Url.Content("~/Content/images/fb.png")" class="fadeTo"/></a>
                     <a href="http://twitter.com"><img src="@Url.Content("~/Content/images/tw.png")" class="fadeTo"/></a>
                     <a href="http://flickr.com"><img src="@Url.Content("~/Content/images/fl.png")" class="fadeTo"/></a>
-                    <a href="http://youtube.com"><img src="@Url.Content("~/Content/images/yt.png")" class="fadeTo"/></a>
+					<a href="http://youtube.com"><img src="@Url.Content("~/Content/images/yt.png")" class="fadeTo"/></a>
+					<div id="latestTweet">
+						<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js">
+						</script>
+						<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/dormisher.json?callback=twitterCallback2&count=1">
+						</script>
+					</div>
                 </div>
                 <div id="contact" class="inlineBlock">
                     <h4>GET IN TOUCH</h4>
                     <p>Your Email</p>
-                    <input type="text" name="email" value="@ViewBag.Email"/>
+                    <input id="email" type="text" value="@ViewBag.Email"/>
                     <p>Message</p>
-                    <textarea name="message">@ViewBag.Message</textarea>
-                    <input type="submit" value="Send" class="button right"/>
+					<textarea id="message">@ViewBag.Message</textarea>
+					@*<img src="@Url.Content("~/content/images/ajax-loader.gif")" class="right"/>*@
+                    <input id="sendFeedback" type="submit" value="SEND" class="button right"/>
                 </div>
 			</div>
 		</div>
@@ -92,14 +86,34 @@
 	<script type="text/javascript" src="@Url.Content("~/Scripts/jquery-1.7.1.min.js")"></script>
     
     <script type="text/javascript">
-        $(function () {
+    	$(function () {
+    		$('.button').mouseenter(function () {
+    			$(this).fadeTo('medium', 1)
+    		})
+
+    		$('.button').mouseleave(function () {
+    			$(this).fadeTo('medium', 0.7)
+    		})
+
             $('.fadeTo').mouseenter(function () {
-                $(this).fadeTo('fast', 0.7)
+                $(this).fadeTo('medium', 0.7)
             })
 
             $('.fadeTo').mouseleave(function () {
-                $(this).fadeTo('fast', 1)
+            	$(this).fadeTo('medium', 1)
             })
+
+            $('#sendFeedback').click(function () {
+				//$('#sending').show()
+				$.ajax({
+					url: '@Url.Action("sendfeedback", "contact")',
+					type: 'POST',
+					data: 'email=' + $('#email').val() + '&message=' + $('#message').val(),
+					success: function () {
+						//$('#sending').hide()
+					}
+				})
+			})
         })
     </script>
 

@@ -82,7 +82,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Data\Entities\LatestEvent.cs" />
-    <Compile Include="Models\FeedbackModel.cs" />
     <Compile Include="Models\LatestEventModel.cs" />
     <Compile Include="Models\HomeModel.cs" />
     <Compile Include="Models\LoginModel.cs" />
@@ -96,7 +95,9 @@
   <ItemGroup>
     <Content Include="Content\admin.css" />
     <Content Include="Content\home.css" />
+    <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\blue-logo.png" />
+    <Content Include="Content\images\btn.png" />
     <Content Include="Content\images\favicon.ico" />
     <Content Include="Content\images\fb.png" />
     <Content Include="Content\images\fl.png" />
@@ -108,15 +109,15 @@
     <Content Include="Content\images\home\latest4.png" />
     <Content Include="Content\images\home\norman.jpg" />
     <Content Include="Content\images\home\signature.png" />
-    <Content Include="Content\images\slider1.png" />
-    <Content Include="Content\images\slider2.png" />
-    <Content Include="Content\images\slider3.png" />
     <Content Include="Content\images\home\triangle.png" />
     <Content Include="Content\images\home\twitter.jpg" />
     <Content Include="Content\images\home\youtube.jpg" />
+    <Content Include="Content\images\just-giving.png" />
+    <Content Include="Content\images\slider1.png" />
+    <Content Include="Content\images\slider2.png" />
+    <Content Include="Content\images\slider3.png" />
     <Content Include="Content\images\tw.png" />
     <Content Include="Content\images\yt.png" />
-    <Content Include="Content\images\just-giving.png" />
     <Content Include="Content\jquery-ui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
     <Content Include="Content\jquery-ui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
     <Content Include="Content\jquery-ui\images\ui-bg_flat_10_000000_40x100.png" />
@@ -136,6 +137,7 @@
     <Content Include="Content\reset.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
+    <Content Include="Scripts\feedback.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\plugins\jquery.nivo.slider.js" />
