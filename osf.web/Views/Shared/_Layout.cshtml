@@ -3,7 +3,7 @@
 	<head>
 		<title>Opportunity Sports Foundation</title>
 		
-		<link rel="shortcut icon" href="@Url.Content("~/Content/Images/favicon.ico")" />
+		<link rel="shortcut icon" href="@Url.Content("~/Content/Images/favicon.ico")"/>
 
 		<link href="@Url.Content("~/Content/reset.css")" rel="stylesheet" type="text/css"/>
         <link href="@Url.Content("~/Content/site.css")" rel="stylesheet" type="text/css"/>
@@ -20,9 +20,9 @@
 				<span>REGISTERED CHARITY NO. 1142543</span>
 				<ul id="nav" class="inlineBlock">
 					<li>@Html.ActionLink("HOME", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("ABOUT US", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("BROCHURES", "Index", new {controller = "Home"})</li>
-					<li>@Html.ActionLink("SUPPORTERS", "Index", new {controller = "Home"})</li>
+					<li>@Html.ActionLink("ABOUT US", "Index", new {controller = "About"})</li>
+					<li>@Html.ActionLink("RECENT EVENTS", "Index", new {controller = "Events"})</li>
+					<li>@Html.ActionLink("SUPPORTERS", "Index", new {controller = "Supporters"})</li>
 				</ul>
 			</div>
 		</div>
@@ -38,18 +38,19 @@
 		<div id="footer">
 			<div id="footerWrapper">
                 <div id="giving" class="inlineBlock">
-                    <h4>JUST GIVING</h4>
+                    <h4>DONATE</h4>
                     <p>
-                        If you would like to donate to us you can do so by clicking the Just Giving link below
+                        If you would like to donate to us you can do so by clicking the Donate button below
+                        and making a donation via paypal
                     </p>
                     <a href="http://justgiving.co.uk"><img src="@Url.Content("~/Content/images/just-giving.png")"/></a>
                 </div>
                 <div id="social" class="inlineBlock">
                     <h4>FOLLOW US</h4>
-                    <a href="http://facebook.com"><img src="@Url.Content("~/Content/images/fb.png")" class="fadeTo"/></a>
-                    <a href="http://twitter.com"><img src="@Url.Content("~/Content/images/tw.png")" class="fadeTo"/></a>
-                    <a href="http://flickr.com"><img src="@Url.Content("~/Content/images/fl.png")" class="fadeTo"/></a>
-					<a href="http://youtube.com"><img src="@Url.Content("~/Content/images/yt.png")" class="fadeTo"/></a>
+                    <a href="http://www.facebook.com/Opportunity.Sports"><img src="@Url.Content("~/Content/images/fb.png")" class="fadeTo"/></a>
+                    <a href="https://twitter.com/#!/OSF__"><img src="@Url.Content("~/Content/images/tw.png")" class="fadeTo"/></a>
+                    <a href="http://www.flickr.com/photos/opportunitysports"><img src="@Url.Content("~/Content/images/fl.png")" class="fadeTo"/></a>
+					<a href="http://www.youtube.com/user/OpportunitySports/feed"><img src="@Url.Content("~/Content/images/yt.png")" class="fadeTo"/></a>
 					<div id="tweet">
 						<img src="@Url.Content("~/content/images/home/triangle.png")"/>
 						<p></p>
@@ -115,7 +116,10 @@
     			}
 
     			if (send) {
-    				$('body').css('cursor', 'wait')
+    			    $('body').css('cursor', 'wait!important')
+    			    $('#emailValMsg').attr('disabled', 'disabled')
+    			    $('#messageValMsg').attr('disabled', 'disabled')
+    			    $('#sendFeedback').attr('disabled', 'disabled')
 
     				$.ajax({
     					url: '@Url.Action("sendfeedback", "contact")',
@@ -131,12 +135,15 @@
     						$('#email').val('')
     						$('#message').val('')
     						$('body').css('cursor', 'auto')
+    						$('#emailValMsg').removeAttr('disabled')
+    						$('#messageValMsg').removeAttr('disabled')
+    						$('#sendFeedback').removeAttr('disabled')
     					}
     				})
     			}
     		})
 
-    		$.getJSON('http://twitter.com/statuses/user_timeline.json?screen_name=dormisher' + '&count=1&callback=?', function (data) {
+            $.getJSON('http://twitter.com/statuses/user_timeline.json?screen_name=OSF__' + '&count=1&callback=?', function (data) {
     			// result returned
     			var tweet = data[0].text;
 
