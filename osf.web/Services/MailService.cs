@@ -7,15 +7,15 @@ namespace osf.web.Services
 		internal void SendFeedbackMail(string email, string message)
 		{
 			var msg = new MailMessage();
-			msg.From = new MailAddress("feedback@opportunitysports.org");
-			msg.Body = string.Format("<h1>Question Submitted</h1><p>{0}</p><p>{1}</p>", email, message);
-			//message.To.Add(new MailAddress("info@opportunitysports.org"));
+			msg.From = new MailAddress(email);
+			msg.Body = string.Format("<h1>Feedback Submitted</h1><p>{0}</p>", message);
 			msg.To.Add(new MailAddress("dormisher@gmail.com"));
+			msg.To.Add(new MailAddress("info@opportunitysports.org"));
 			msg.IsBodyHtml = true;
 
 			using (var smtpClient = new SmtpClient())
 			{
-				smtpClient.Send(msg);
+				//smtpClient.Send(msg);
 			}
 		}
 

@@ -1,8 +1,8 @@
 
-body { font-family:Tahoma; color:#606060; font-size:16px; background-color:#C4CEDA; }
+body { font-family:Tahoma; color:#606060; font-size:16px; background-color:#5270A1; }
 
 a { text-decoration:none; }
-p { line-height:1.5; }
+p { line-height:1.8; }
 
 textarea { font-family:Tahoma; color:#606060; }
 
@@ -12,14 +12,14 @@ h3 { color:#09347A; }
 
 /* header */
 
-div#header { width:100%; }
+div#header { width:100%; background-color:#C4CEDA; padding-bottom:5px;}
 div#header #titleWrapper { width:1000px; margin:auto; padding-bottom:10px; }
 div#header #titleWrapper p { width:400px; }
-div#header #titleWrapper img { height:130px; margin-top:10px; }
+div#header #titleWrapper img { height:120px; margin-top:10px; }
 div#header #titleWrapper span { float:right; color:#333; font-size:10px; font-weight:bold; margin-top:10px; }
 
 ul#nav { list-style-type:none; list-style-position: outside; float:right; margin-top:-20px; font-family:Arial; width:421px; }
-ul#nav li { display:inline-block; zoom:1; *display:inline; font-size:14px; margin-left:30px; }
+ul#nav li { display:inline-block; zoom:1; *display:inline; font-size:13px; margin-left:30px; }
 ul#nav li a { color:#09347A; opacity:0.8; }
 ul#nav li a:hover { opacity:1; }
 
@@ -33,16 +33,24 @@ div#footer p { font-size: 12px;text-align: justify;}
 
 div#footer #contact { margin-right: 0!important;}
 div#footer #contact input,
-div#footer #contact textarea { width: 100%;font-size: 12px;padding: 5px;color:#606060;border-radius: 5px;border: 1px solid #ddd;}
+div#footer #contact textarea { width: 100%;font-size: 12px;padding: 5px;color:#606060;border-radius: 5px;border: none;}
 div#footer #contact textarea { height: 100px;}
-div#footer #contact .button {width: auto;margin-right: -10px;margin-top: 10px;padding:5px 15px; color:#111;}                               
+div#footer #contact .button {width: auto;margin-right: -10px;margin-top: 10px;padding:5px 15px;border:1px solid #bbb; color:#666; border-radius:8px; background-color:#f5f5f5;}
+div#footer #contact .button:hover { border-color:#888; color:#333;}
 div#footer #contact p { color: #eee;font-size: 13px;margin-top: 10px;margin-bottom: 4px;}
+div#footer #contact #emailValMsg,
+div#footer #contact #messageValMsg { color:#F36969; margin:0;}
+div#footer #contact #sentMsg {color:#eee; margin-top: 12px; margin-right: 5px;}
 
 div#footer #social a { margin-right: 20px;}
 div#footer #giving img { margin-top: 10px;}
 
 div#footer #address { font-size: 12px;}
 div#footer #address td { padding: 5px 0; line-height:1.5;}
+
+div#footer #tweet p { background-color:#fff; border-radius:10px; padding:10px; color:#606060;}
+div#footer #tweet img { margin-left:65px; margin-bottom:-2px; }
+
 
 /* content */
 
@@ -56,6 +64,7 @@ div#contentWrapper { width:1000px; height:auto; margin:auto; }
 .bold {font-weight:bold;}
 .italic {font-style:italic;}
 .block {display:block;}
+.hidden { display:none; }
 
 .itemList li { margin-bottom:10px; }
 .itemList label { display:inline-block; zoom:1; *display:inline; width:100px;vertical-align:top; }
@@ -63,8 +72,9 @@ div#contentWrapper { width:1000px; height:auto; margin:auto; }
 .itemList textarea { width:83%;height:100px; }
 .itemList .button {width:auto;}
 
-.button { text-decoration:none; text-align:center; border:1px solid #999; color:#111; border-radius:8px; background:url('images/btn.png') #999 0 0 repeat;
-          cursor:pointer; font-size:16px; display:inline-block; zoom:1; *display:inline; padding:5px 15px; opacity:0.7; }
+.button { text-decoration:none; text-align:center; border:1px solid #bbb; color:#666; border-radius:8px; background-color:#f5f5f5;
+          cursor:pointer; font-size:16px; display:inline-block; zoom:1; *display:inline; padding:5px 15px;}
+.button:hover { border-color:#888; color:#333;}
 
 .field-validation-error {color:red;font-size:12px;}
 

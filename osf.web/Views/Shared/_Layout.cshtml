@@ -44,6 +44,17 @@
                     </p>
                     <a href="http://justgiving.co.uk"><img src="@Url.Content("~/Content/images/just-giving.png")"/></a>
                 </div>
+                <div id="social" class="inlineBlock">
+                    <h4>FOLLOW US</h4>
+                    <a href="http://facebook.com"><img src="@Url.Content("~/Content/images/fb.png")" class="fadeTo"/></a>
+                    <a href="http://twitter.com"><img src="@Url.Content("~/Content/images/tw.png")" class="fadeTo"/></a>
+                    <a href="http://flickr.com"><img src="@Url.Content("~/Content/images/fl.png")" class="fadeTo"/></a>
+					<a href="http://youtube.com"><img src="@Url.Content("~/Content/images/yt.png")" class="fadeTo"/></a>
+					<div id="tweet">
+						<img src="@Url.Content("~/content/images/home/triangle.png")"/>
+						<p></p>
+					</div>
+                </div>
                 <div id="address" class="inlineBlock">
                     <h4>CONTACT DETAILS</h4>
                     <table>
@@ -57,27 +68,17 @@
                         </tr>
                     </table>
                 </div>
-                <div id="social" class="inlineBlock">
-                    <h4>FOLLOW US</h4>
-                    <a href="http://facebook.com"><img src="@Url.Content("~/Content/images/fb.png")" class="fadeTo"/></a>
-                    <a href="http://twitter.com"><img src="@Url.Content("~/Content/images/tw.png")" class="fadeTo"/></a>
-                    <a href="http://flickr.com"><img src="@Url.Content("~/Content/images/fl.png")" class="fadeTo"/></a>
-					<a href="http://youtube.com"><img src="@Url.Content("~/Content/images/yt.png")" class="fadeTo"/></a>
-					<div id="latestTweet">
-						<script type="text/javascript" src="http://twitter.com/javascripts/blogger.js">
-						</script>
-						<script type="text/javascript" src="http://twitter.com/statuses/user_timeline/dormisher.json?callback=twitterCallback2&count=1">
-						</script>
-					</div>
-                </div>
                 <div id="contact" class="inlineBlock">
                     <h4>GET IN TOUCH</h4>
-                    <p>Your Email</p>
+					<p>Your Email</p>
+					<p id="emailValMsg" class="hidden">please enter a valid email!</p>
                     <input id="email" type="text" value="@ViewBag.Email"/>
-                    <p>Message</p>
+					<p>Message</p>
+					<p id="messageValMsg" class="hidden">please enter a message!</p>
 					<textarea id="message">@ViewBag.Message</textarea>
 					@*<img src="@Url.Content("~/content/images/ajax-loader.gif")" class="right"/>*@
-                    <input id="sendFeedback" type="submit" value="SEND" class="button right"/>
+					<input id="sendFeedback" type="submit" value="SEND" class="button right"/>
+					<p id="sentMsg" class="right">Thanks! We'll be in touch soon...</p>
                 </div>
 			</div>
 		</div>
@@ -87,34 +88,74 @@
     
     <script type="text/javascript">
     	$(function () {
-    		$('.button').mouseenter(function () {
-    			$(this).fadeTo('medium', 1)
-    		})
+    		$('#sentMsg').hide()
 
-    		$('.button').mouseleave(function () {
+    		$('.fadeTo').mouseenter(function () {
     			$(this).fadeTo('medium', 0.7)
     		})
 
-            $('.fadeTo').mouseenter(function () {
-                $(this).fadeTo('medium', 0.7)
-            })
+    		$('.fadeTo').mouseleave(function () {
+    			$(this).fadeTo('medium', 1)
+    		})
 
-            $('.fadeTo').mouseleave(function () {
-            	$(this).fadeTo('medium', 1)
-            })
+    		$('#sendFeedback').click(function () {
+    			$('#emailValMsg').hide()
+    			$('#messageValMsg').hide()
 
-            $('#sendFeedback').click(function () {
-				//$('#sending').show()
-				$.ajax({
-					url: '@Url.Action("sendfeedback", "contact")',
-					type: 'POST',
-					data: 'email=' + $('#email').val() + '&message=' + $('#message').val(),
-					success: function () {
-						//$('#sending').hide()
-					}
-				})
-			})
-        })
+    			var email = $('#email').val()
+    			var message = $('#message').val()
+
+    			var send = true
+    			if (!validateEmail(email)) {
+    				$('#emailValMsg').fadeIn('medium')
+    				send = false
+    			}
+
+    			if (message == '') {
+    				$('#messageValMsg').fadeIn('medium')
+    				send = false
+    			}
+
+    			if (send) {
+    				$('body').css('cursor', 'wait')
+
+    				$.ajax({
+    					url: '@Url.Action("sendfeedback", "contact")',
+    					type: 'POST',
+    					data: 'email=' + email + '&message=' + message,
+    					success: function () {
+    						$('#sentMsg').fadeTo(1, function () {
+    							$('#sentMsg').fadeOut()
+    						})
+
+    						$('#email').val('')
+    						$('#message').val('')
+    						$('body').css('cursor', 'auto')
+    					}
+    				})
+    			}
+    		})
+
+    		$.getJSON('http://twitter.com/statuses/user_timeline.json?screen_name=dormisher' + '&count=1&callback=?', function (data) {
+    			// result returned
+    			var tweet = data[0].text;
+
+    			// process links and reply
+    			tweet = tweet.replace(/(\b(https?|ftp|file):\/\/[-A-Z0-9+&@@#\/%?=~_|!:,.;]*[-A-Z0-9+&@@#\/%=~_|])/ig, function (url) {
+    				return '<a href="' + url + '">' + url + '</a>';
+    			}).replace(/B@@([_a-z0-9]+)/ig, function (reply) {
+    				return reply.charAt(0) + '<a href="http://twitter.com/' + reply.substring(1) + '">' + reply.substring(1) + '</a>';
+    			});
+
+    			// output the result
+    			$("#tweet p").html(tweet);
+    		});
+
+    		function validateEmail(email) {
+    			var re = /^(([^<>()[\]\\.,;:\s@@\"]+(\.[^<>()[\]\\.,;:\s@@\"]+)*)|(\".+\"))@@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    			return re.test(email);
+    		}
+    	})
     </script>
 
     @RenderSection("scripts", false)
