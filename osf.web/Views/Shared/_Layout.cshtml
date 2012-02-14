@@ -78,7 +78,7 @@
 					<textarea id="message">@ViewBag.Message</textarea>
 					@*<img src="@Url.Content("~/content/images/ajax-loader.gif")" class="right"/>*@
 					<input id="sendFeedback" type="submit" value="SEND" class="button right"/>
-					<p id="sentMsg" class="right">Thanks! We'll be in touch soon...</p>
+					<p id="sentMsg" class="hidden">Thanks! We'll be in touch...</p>
                 </div>
 			</div>
 		</div>
@@ -88,8 +88,6 @@
     
     <script type="text/javascript">
     	$(function () {
-    		$('#sentMsg').hide()
-
     		$('.fadeTo').mouseenter(function () {
     			$(this).fadeTo('medium', 0.7)
     		})
@@ -124,7 +122,7 @@
     					type: 'POST',
     					data: 'email=' + email + '&message=' + message,
     					success: function () {
-    						$('#sentMsg').fadeTo(1, function () {
+    						$('#sentMsg').fadeIn('medium', function () {
     							$('#sentMsg').fadeOut()
     						})
 
