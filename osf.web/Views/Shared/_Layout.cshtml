@@ -122,8 +122,10 @@
     					type: 'POST',
     					data: 'email=' + email + '&message=' + message,
     					success: function () {
-    						$('#sentMsg').fadeIn('medium', function () {
-    							$('#sentMsg').fadeOut()
+    						$('#sentMsg').fadeIn('slow', function () {
+    							setTimeout(2000, function () {
+    								$('#sentMsg').fadeOut()
+    							})
     						})
 
     						$('#email').val('')

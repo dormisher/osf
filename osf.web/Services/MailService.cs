@@ -8,10 +8,10 @@ namespace osf.web.Services
 		{
 			var msg = new MailMessage();
 			msg.From = new MailAddress(email);
-			msg.Body = string.Format("<h1>Feedback Submitted</h1><p>{0}</p>", message);
+			msg.Subject = "Feedback Submitted From opportunitysports.org";
+			msg.Body = message;
 			msg.To.Add(new MailAddress("dormisher@gmail.com"));
 			msg.To.Add(new MailAddress("info@opportunitysports.org"));
-			msg.IsBodyHtml = true;
 
 			using (var smtpClient = new SmtpClient())
 			{
