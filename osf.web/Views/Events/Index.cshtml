@@ -3,13 +3,18 @@
 @section head
 {
 	<style>
-	    h2 { margin-top:40px; }
-	    div.eventBox { width:477px; padding-bottom:20px; }
+	    h2 { margin-top:20px;margin-bottom: 40px; }
+	    div.eventBox { width:477px; padding-bottom:20px;vertical-align: top;}
 	    div.eventBox:first-child { margin-right:40px; }
 	    div.eventBox div { vertical-align:top; }
-	    div.eventBox h3 { color:#353535; font-size:26px; margin:20px 0; }
-	    div.eventBox h3 span { color:#ccc; font-size:18px; margin-left:20px; }
+	    div.eventBox h3 { color:#353535; font-size:24px; margin:20px 0; }
+	    div.eventBox h3 span { color:#aaa; font-size:18px; margin-left:20px; }
 	    div.eventBox p { font-size:14px; }
+	    
+	    a.paging { color:#00AFEF; font-size:16px; padding:3px 5px; margin-bottom:3px; }
+        a.paging:hover { background-color:#00AFEF; color:#fff; }
+	    
+	    .wrapper {border-color: #eee;}
 	    
 	    div.image { overflow:hidden; width:477px; height:200px;}
 	    div.image img { width:477px; }
@@ -20,7 +25,7 @@
 
 @if (Model.LatestEvents.Count > 0)
 {
-	<div class="bottomBorder">
+	<div class="bottomBorder wrapper" style="margin-bottom:30px;">
 		@RenderEvent(Model.LatestEvents[0])
 		@if (Model.LatestEvents.Count > 1)
 		{
@@ -31,7 +36,7 @@
 
 @if (Model.LatestEvents.Count > 2)
 {
-	<div class="bottomBorder">
+	<div class="bottomBorder wrapper" style="margin-bottom:10px;">
 		@RenderEvent(Model.LatestEvents[2])
 		@if (Model.LatestEvents.Count > 2)
 		{
@@ -40,9 +45,14 @@
 	</div>
 }
 
-@if (Model.TotalPages > 1)
+@if (Model.Page > 1)
 {
-	@Html.ActionLink("older →", "index", new {page = Model.Page + 1})
+	@Html.ActionLink("← more recent", "index", new { page = Model.Page - 1 }, new { @class = "paging" })
+}
+
+@if (Model.Page < Model.TotalPages)
+{
+	@Html.ActionLink("older →", "index", new { page = Model.Page + 1 }, new { @class = "paging right" })
 }
 
 @helper RenderEvent(LatestEventModel e)
