@@ -13,8 +13,10 @@
 	<div id="quote" class="inlineBlock">
 		<h3>@Model.Quote.Person</h3>
 		<span>@Model.Quote.Info</span>
-		<img src="@Url.Content("~/Content/images/home/triangle.png")"/>
-		<p>@Model.Quote.Quote</p>
+        <img src="@Url.Content("~/Content/images/home/triangle.png")"/>
+        <div id="randomQuote">
+            <p>@Model.Quote.Quote</p>
+        </div>
 	</div>
 
 </div>
@@ -66,38 +68,38 @@
                 <img src="@Url.Content("~/Content/images/home/latest1.png")"/>
             </div>
             <div class="info">
-                <h3>Misson</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                <h3>About OSF</h3>
+                <p>Find out our mission, our vision, our values, and what OSF is all about</p>
             </div>
-            <a class="readMore" href="">read more →</a>
+            @Html.ActionLink("read more →", "index", new { controller = "about" }, new { @class = "readMore" })
         </li>
         <li>
             <div class="image">
                 <img src="@Url.Content("~/Content/images/home/latest2.png")"/>
             </div>
             <div class="info">
-                <h3>Strategy</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                <h3>Supporters</h3>
+                <p>View a list of our supporters, who OSF wouldn't be able to operate without</p>
             </div>
-            <a class="readMore" href="">read more →</a>
+            @Html.ActionLink("read more →", "index", new { controller = "supporters" }, new { @class = "readMore" })
         </li>
         <li>
             <div class="image">
                 <img src="@Url.Content("~/Content/images/home/latest3.png")"/>
             </div>
             <div class="info">
-                <h3>Portfolio</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                <h3>Recent Events</h3>
+                <p>View pictures and descriptions of our recent events</p>
             </div>
-            <a class="readMore" href="">read more →</a>
+            @Html.ActionLink("read more →", "index", new { controller = "events" }, new { @class = "readMore" })
         </li>
         <li class="last">
             <div class="image">
                 <img src="@Url.Content("~/Content/images/home/latest4.png")"/>
             </div>
             <div class="info">
-                <h3>Why OSF?</h3>
-                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit</p>
+                <h3>Brochures</h3>
+                <p>Click here to view brochures containing further information about OSF</p>
             </div>
             <a class="readMore" href="">read more →</a>
         </li>

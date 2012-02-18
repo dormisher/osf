@@ -1,100 +1,161 @@
 ﻿
-<div id="mission">
-	<h2>Our Mission</h2>
-	<p>OSF's very existence - why we do what we do - is described though the following mission statement:</p>
-	<p>
-		To advance in life and help expecially, but not exclusively, disadvantaged young people through the provision of sporting,
-		recreational, and leisure time activities. These activities will be provided in the interest of social welfare to increase
-		the capacities and capabilities of young people so that they can positively participate in society as mature and responsible
-		individuals.
-	</p>
-	
-	<h3>Our Vision</h3>
-	<p>
-		Our ultimate goal is the all-round development of the latent potential of young people mainly, but not only, through sporting
-		activities. We see sport as an innovative and positive vehicle that will develop life skills to full potential. OSF will provide
-		young people of the North West, with long-term real opportunities that will reduce unemployment, advance their education,
-		increase their health and well being, and most importantly change their lives.
-	</p>
-	
-	<h3>Our Values</h3>
-	<p>
-		Our unbreakable core relationship is directly with the young people we serve (our clients). It is critical to the success of
-		the work that we be able to build up a mutual trust that will enable our young clients to enter into the OSF family with
-		confidence. Our key values are as follows:
-	</p>
-	<ul>
-		<li>
-			The OSF team, who are directly involved with young people and children, will be thoroughly and continually vetted via
-			the Criminal Records Bureau (CRB).
-		</li>
-		<li>
-			We will continue to be totally open, responsive, and transparent in our relationships with clients, partners, the Charity
-			Commission, and staff.
-		</li>
-		<li>
-			Client confidentiality will be an extremely high factor that cannot be breached unless there is a serious risk to the client
-			or to others.
-		</li>
-		<li>
-			Flexibility, responsiveness, and innovation will be a feature and benefit of our work.
-		</li>
-		<li>
-			Our sports coaches will regularly consult with sponsors and clients in an endeavour to reach a common understanding and ensure
-			we provide exactly what is needed.
-		</li>
-		<li>
-			The skill of listening and communicating effectively is a value we intend to continually revisit.
-		</li>
-		<li>
-			We will always accept full responsibility for our decisions and actions.
-		</li>
-		<li>
-			All funds received will be recycled back into OSF because of our non-profit making status.
-		</li>
-	</ul>
+@section head
+{
+    <style>
+        div#content p { margin-bottom: 20px;font-size: 12px;}        
+        div#content h2 { font-size: 20px;padding: 0;border: none;}
+        
+        div#leftWrapper,
+        div#values { width: 477px;}
+        
+        div#leftWrapper { margin-right: 40px;}
+        
+        div#statement,
+        div#values,
+        div#vision { vertical-align: top;text-align: justify;}
+        
+        div#values ul { font-size: 12px;line-height: 1.8;list-style-type: circle;list-style-position: inside; }
+        div#values ul li { margin-bottom: 5px;}
+        div#values h3 { margin-bottom: 20px;}
+        
+        div#vision h3 { margin-bottom: 20px;}
+        
+        div#youngPeople,
+        div#violence { width: 477px;vertical-align: top;margin-top: 40px;}
+        
+        div#values img,
+        div#statement img,
+        div#youngPeople img,
+        div#violence img { margin-bottom: 20px;}
+        
+        div#youngPeople { margin-right: 40px;}
+        div#youngPeople ul { font-size: 12px;line-height: 1.8;list-style-type: circle;list-style-position: inside;margin-bottom: 20px;
+                             vertical-align: top;margin-top: 26px;margin-left: 20px;}
+        
+        .statementBox {padding: 15px; background-color: #eee;color: #555; border-radius: 10px;margin-bottom: 20px;}
+        .statementBox p { margin: 0!important;}
+    </style>
+}
+
+<div id="leftWrapper" class="inlineBlock">
+    <div id="statement" class="inlineBlock">
+        
+        <h2>Our Mission</h2>
+        <img src="@Url.Content("~/content/images/about/head3.png")"/>
+        <p class="italic">OSF's very existence - why we do what we do - is described though the following mission statement:</p>
+        <div class="statementBox">
+            <img src="@Url.Content("~/content/images/about/speech.png")" class="speechMark"/>
+            <p>
+                To advance in life and help expecially, but not exclusively, disadvantaged young people through the provision of sporting,
+                recreational, and leisure time activities. These activities will be provided in the interest of social welfare to increase
+                the capacities and capabilities of young people so that they can positively participate in society as mature and responsible
+                individuals.
+            </p>
+        </div>
+    </div>
+    
+    <div id="vision" class="inlineBlock">
+        <h3>Our Vision</h3>
+        <p>
+            Our ultimate goal is the all-round development of the latent potential of young people mainly, but not only, through sporting
+            activities. We see sport as an innovative and positive vehicle that will develop life skills to full potential. OSF will provide
+            young people of the North West, with long-term real opportunities that will reduce unemployment, advance their education,
+            increase their health and well being, and most importantly change their lives.
+        </p>
+    </div>
+</div>
+    
+<div id="values" class="inlineBlock">
+    
+    <h2>Our Values</h2>
+    <img src="@Url.Content("~/content/images/about/head4.png")"/>
+    <p>
+        Our unbreakable core relationship is directly with the young people we serve (our clients). It is critical to the success of
+        the work that we be able to build up a mutual trust that will enable our young clients to enter into the OSF family with
+        confidence. Our key values are as follows:
+    </p>
+    <h3>Key Values</h3>
+    <ul>
+        <li>
+            The OSF team, who are directly involved with young people and children, will be thoroughly and continually vetted via
+            the Criminal Records Bureau (CRB).
+        </li>
+        <li>
+            We will continue to be totally open, responsive, and transparent in our relationships with clients, partners, the Charity
+            Commission, and staff.
+        </li>
+        <li>
+            Client confidentiality will be an extremely high factor that cannot be breached unless there is a serious risk to the client
+            or to others.
+        </li>
+        <li>
+            Flexibility, responsiveness, and innovation will be a feature and benefit of our work.
+        </li>
+        <li>
+            Our sports coaches will regularly consult with sponsors and clients in an endeavour to reach a common understanding and ensure
+            we provide exactly what is needed.
+        </li>
+        <li>
+            The skill of listening and communicating effectively is a value we intend to continually revisit.
+        </li>
+        <li>
+            We will always accept full responsibility for our decisions and actions.
+        </li>
+        <li>
+            All funds received will be recycled back into OSF because of our non-profit making status.
+        </li>
+    </ul>
 </div>
 
-<div id="strategy">
-	<h2>The PE and Sport Strategy for Young People</h2>
-	<p>
-		OSF are fully supportive of the government's Every Child Matters: Change for Children strategy which aims to ensure that every child,
-		whatever their background or circumstances, has support to:
-	</p>
-	<ul>
-		<li>be healthy</li>
-		<li>stay safe</li>
-		<li>enjoy and achieve</li>
-		<li>make a positive contribution</li>
-		<li>achieve economic well-being</li>
-	</ul>
-	<p>
-		Participation in sport and sporting activities has been identified as having a unique role in supporting improved outcomes for children
-		and young people. Sport plays a very positive role in the lives of childrena and young people, supporting them to stay healthy and
-		develop important social and life skills.
-	</p>
-	<p>
-		The PE and Sport Strategy for Young People aims to offer children and young people in England at least five hours of high quality PE and
-		Sport every week.
-	</p>
-	
-	<h2>Breaking the Cycle of Violence</h2>
-	<p>
-		We believe that sport can be instrumental in helping steer young people away from the lure of crime, violence, and towards a more
-		constructive ways to fulfil their true potential.
-	</p>
-	<p>
-		Our view is substantiated by any research projects but non more significant than the report Breaking the Cycle of Violence commissioned
-		by the Laureus Sport for Good Foundation.
-	</p>
-	<p>
-		This report provides clear and undeniable evidence of the social benefits of sport to young disadvantaged people. The great Olympian
-		Champion Edwin Moses, Chairman of Laureus said:
-	</p>
-	<p>
-		"The report provides compelling arguments that sport and physical activity has been proven to have a benefical impact on people's lives.
-		The huge number of people interviewed from disadvantaged areas confirmed this overwhelmingly."
-	</p>
+<div id="youngPeople" class="inlineBlock">
+    
+    <h2>The PE and Sport Strategy for Young People</h2>
+    <img src="@Url.Content("~/content/images/about/head2.png")"/>
+    <p>
+        <span class="bold">OSF are fully supportive</span> of the government's Every Child Matters: Change for Children strategy which aims to ensure that every child,
+        whatever their background or circumstances, has support to:
+    </p>
+    <img src="@Url.Content("~/content/images/about/boy.png")" class="inlineBlock" />
+    <ul class="inlineBlock">
+        <li>be healthy</li>
+        <li>stay safe</li>
+        <li>enjoy and achieve</li>
+        <li>make a positive contribution</li>
+        <li>achieve economic well-being</li>
+    </ul>
+    <p>
+        Participation in sport and sporting activities has been identified as having a unique role in supporting improved outcomes for children
+        and young people. Sport plays a very positive role in the lives of childrena and young people, supporting them to stay healthy and
+        develop important social and life skills.
+    </p>
+    <p>
+        The PE and Sport Strategy for Young People aims to offer children and young people in England at least five hours of high quality PE and
+        Sport every week.
+    </p>
+</div>
+<div id="violence" class="inlineBlock">
+    
+    <h2>Breaking the Cycle of Violence</h2>
+    <img src="@Url.Content("~/content/images/about/head1.png")"/>
+    <p>
+        We believe that sport can be instrumental in helping steer young people away from the lure of crime, violence, and towards a more
+        constructive ways to fulfil their true potential.
+    </p>
+    <p>
+        Our view is substantiated by any research projects but non more significant than the report Breaking the Cycle of Violence commissioned
+        by the Laureus Sport for Good Foundation.
+    </p>
+    <p>
+        This report provides clear and undeniable evidence of the social benefits of sport to young disadvantaged people. The great Olympian
+        Champion Edwin Moses, Chairman of Laureus said:
+    </p>
+    <div class="statementBox">
+            <img src="@Url.Content("~/content/images/about/speech.png")" class="speechMark"/>
+            <p>
+                The report provides compelling arguments that sport and physical activity has been proven to have a benefical impact on people's lives.
+                The huge number of people interviewed from disadvantaged areas confirmed this overwhelmingly.
+            </p>
+        </div>
 </div>
 
 @*<div id="why">
