@@ -1,0 +1,58 @@
+﻿
+@section head
+{
+	<style>
+	    h2 { margin-top:20px;margin-bottom: 40px; }
+	    div.supporterBox { width:302px;height: 397px; padding-bottom:20px;vertical-align: top;margin-right: 40px;}
+	    div.supporterBox.noMargin { margin-right: 0!important;}
+	    div.supporterBox:first-child { margin-right:40px; }
+	    div.supporterBox div { vertical-align:top; }
+	    div.supporterBox h3 { color:#353535; font-size:22px; margin:20px; }
+	    div.supporterBox p { font-size:13px;text-align: justify;margin: 0 20px;}
+	    
+	    a.paging { color:#00AFEF; font-size:16px; padding:3px 5px; margin-bottom:3px; }
+        a.paging:hover { background-color:#00AFEF; color:#fff; }
+	    
+	    .wrapper {border-color: #eee;}
+	    
+	    div.image { overflow:hidden;}
+	    div.image img { }
+	</style>
+}
+
+<h2>Our Supporters</h2>
+
+<div class="supporterBox inlineBlock beveledBox">
+    <div class="image inlineBlock">
+        <img src="@Url.Content("~/content/images/supporters/council.jpg")"/>
+    </div>
+    <h3>Blackburn with Darwen Council</h3>
+    <p>
+        Blackburn with Darwen is a unitary authority area in Lancashire, North West England. It consists of 
+        Blackburn, the small town of Darwen to the south of it, and the surrounding countryside.
+    </p>
+</div>
+
+<div class="supporterBox inlineBlock beveledBox">
+    <div class="image inlineBlock">
+        <img src="@Url.Content("~/content/images/supporters/lcc.jpg")"/>
+    </div>
+    <h3>Lancashire County Council</h3>
+    <p>
+        Lancashire County Council is the upper-tier local authority for the non-metropolitan county of 
+        Lancashire, England. It currently consists of 84 councillors, and is controlled by the Conservative 
+        Party, who won control of the council in the local council elections in June 2009, ending 28 years 
+        of Labour control.
+    </p>
+</div>
+
+<div class="supporterBox inlineBlock noMargin beveledBox">
+    <div class="image inlineBlock">
+        <img src="@Url.Content("~/content/images/supporters/nightsafe.png")"/>
+    </div>
+    <h3>Nightsafe</h3>
+    <p>
+        Nightsafe is a local homeless charity based in Blackburn providing holistic services to homeless
+        young people aged 16 to 24 in the Blackburn and Darwen borough. 
+    </p>
+</div>

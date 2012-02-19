@@ -3,10 +3,13 @@
 {
     <style>
         div#content p { margin-bottom: 20px;font-size: 12px;}        
-        div#content h2 { font-size: 20px;padding: 0;border: none;}
+        div#content h2 { font-size: 20px;padding: 0;border: none;margin-top: 0;}
+        
+        div#content h2, div#content h3, div#content p, div#content ul,
+        div#content .statementBox { margin-left: 20px;margin-right: 20px;}
         
         div#leftWrapper,
-        div#values { width: 477px;}
+        div#values { width: 476px;height: 730px;margin-top: 20px;}
         
         div#leftWrapper { margin-right: 40px;}
         
@@ -21,7 +24,7 @@
         div#vision h3 { margin-bottom: 20px;}
         
         div#youngPeople,
-        div#violence { width: 477px;vertical-align: top;margin-top: 40px;}
+        div#violence { width: 476px;height: 603px;vertical-align: top;margin-top: 40px;}
         
         div#values img,
         div#statement img,
@@ -37,11 +40,11 @@
     </style>
 }
 
-<div id="leftWrapper" class="inlineBlock">
+<div id="leftWrapper" class="inlineBlock beveledBox">
     <div id="statement" class="inlineBlock">
-        
-        <h2>Our Mission</h2>
         <img src="@Url.Content("~/content/images/about/head3.png")"/>
+        <h2>Our Mission</h2>
+        
         <p class="italic">OSF's very existence - why we do what we do - is described though the following mission statement:</p>
         <div class="statementBox">
             <img src="@Url.Content("~/content/images/about/speech.png")" class="speechMark"/>
@@ -65,10 +68,10 @@
     </div>
 </div>
     
-<div id="values" class="inlineBlock">
-    
-    <h2>Our Values</h2>
+<div id="values" class="inlineBlock beveledBox">
     <img src="@Url.Content("~/content/images/about/head4.png")"/>
+    <h2>Our Values</h2>
+    
     <p>
         Our unbreakable core relationship is directly with the young people we serve (our clients). It is critical to the success of
         the work that we be able to build up a mutual trust that will enable our young clients to enter into the OSF family with
@@ -107,10 +110,10 @@
     </ul>
 </div>
 
-<div id="youngPeople" class="inlineBlock">
-    
-    <h2>The PE and Sport Strategy for Young People</h2>
+<div id="youngPeople" class="inlineBlock beveledBox">
     <img src="@Url.Content("~/content/images/about/head2.png")"/>
+    <h2>The PE and Sport Strategy for Young People</h2>
+    
     <p>
         <span class="bold">OSF are fully supportive</span> of the government's Every Child Matters: Change for Children strategy which aims to ensure that every child,
         whatever their background or circumstances, has support to:
@@ -133,10 +136,10 @@
         Sport every week.
     </p>
 </div>
-<div id="violence" class="inlineBlock">
-    
-    <h2>Breaking the Cycle of Violence</h2>
+<div id="violence" class="inlineBlock beveledBox">
     <img src="@Url.Content("~/content/images/about/head1.png")"/>
+    <h2>Breaking the Cycle of Violence</h2>
+    
     <p>
         We believe that sport can be instrumental in helping steer young people away from the lure of crime, violence, and towards a more
         constructive ways to fulfil their true potential.

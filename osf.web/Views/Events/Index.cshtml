@@ -4,12 +4,12 @@
 {
 	<style>
 	    h2 { margin-top:20px;margin-bottom: 40px; }
-	    div.eventBox { width:477px; padding-bottom:20px;vertical-align: top;}
+	    div.eventBox { width:476px; padding-bottom:20px;vertical-align: top;}
 	    div.eventBox:first-child { margin-right:40px; }
 	    div.eventBox div { vertical-align:top; }
-	    div.eventBox h3 { color:#353535; font-size:24px; margin:20px 0; }
-	    div.eventBox h3 span { color:#aaa; font-size:18px; margin-left:20px; }
-	    div.eventBox p { font-size:14px; }
+	    div.eventBox h3 { color:#353535; font-size:22px; margin:20px }
+	    div.eventBox h3 span { color:#999; font-size:16px; margin-left:20px; }
+	    div.eventBox p { font-size:13px;text-align: justify;margin: 0 20px; }
 	    
 	    a.paging { color:#00AFEF; font-size:16px; padding:3px 5px; margin-bottom:3px; }
         a.paging:hover { background-color:#00AFEF; color:#fff; }
@@ -57,7 +57,7 @@
 
 @helper RenderEvent(LatestEventModel e)
 {
-	<div class="eventBox inlineBlock">
+	<div class="eventBox inlineBlock beveledBox">
 		<div class="image inlineBlock">
 			<img src='https://s3-eu-west-1.amazonaws.com/osf.latestevents/@(e.Id).jpg'/>
 		</div>

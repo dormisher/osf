@@ -90,3 +90,5 @@ div#contentWrapper { width:1000px; height:auto; margin:auto; }
 .leftBorder {border-left:1px solid #ddd; }
 .rightBorder {border-right:1px solid #ddd; }
 .padded {padding:10px;}
+
+.beveledBox {background-color:#fff; border-right:1px solid #eee; border-bottom:2px solid #eee;}
