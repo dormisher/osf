@@ -4,7 +4,7 @@
 {
 	<style>
 	    h2 { margin-top:20px;margin-bottom: 40px; }
-	    div.eventBox { width:476px; padding-bottom:20px;vertical-align: top;}
+	    div.eventBox { width:476px;height: 370px;padding-bottom:20px;vertical-align: top;}
 	    div.eventBox:first-child { margin-right:40px; }
 	    div.eventBox div { vertical-align:top; }
 	    div.eventBox h3 { color:#353535; font-size:22px; margin:20px }
@@ -25,7 +25,7 @@
 
 @if (Model.LatestEvents.Count > 0)
 {
-	<div class="bottomBorder wrapper" style="margin-bottom:30px;">
+	<div class="wrapper" style="margin-bottom:30px;">
 		@RenderEvent(Model.LatestEvents[0])
 		@if (Model.LatestEvents.Count > 1)
 		{
@@ -36,7 +36,7 @@
 
 @if (Model.LatestEvents.Count > 2)
 {
-	<div class="bottomBorder wrapper" style="margin-bottom:10px;">
+	<div class="wrapper" style="margin-bottom:10px;">
 		@RenderEvent(Model.LatestEvents[2])
 		@if (Model.LatestEvents.Count > 2)
 		{
