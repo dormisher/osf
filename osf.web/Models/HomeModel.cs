@@ -7,5 +7,7 @@ namespace osf.web.Models
         public List<LatestEventModel> LatestEvents { get; set; }
 
 		public QuoteModel Quote { get; set; }
+
+        public string BrochuresUrl { get; set; }
 	}
 }

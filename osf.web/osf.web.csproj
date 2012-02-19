@@ -96,6 +96,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\admin.css" />
+    <Content Include="Content\colorbox.css" />
     <Content Include="Content\home.css" />
     <Content Include="Content\images\about\aboutbanner.png" />
     <Content Include="Content\images\about\boy.png" />
@@ -143,12 +144,18 @@
     <Content Include="Content\jquery-ui\images\ui-icons_ffffff_256x240.png" />
     <Content Include="Content\jquery-ui\jquery-ui.css" />
     <Content Include="Content\nivo-slider.css" />
+    <Content Include="Content\plugins\border.png" />
+    <Content Include="Content\plugins\controls.png" />
+    <Content Include="Content\plugins\loading.gif" />
+    <Content Include="Content\plugins\loading_background.png" />
+    <Content Include="Content\plugins\overlay.png" />
     <Content Include="Content\reset.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\site.css" />
     <Content Include="Scripts\feedback.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
     <Content Include="Scripts\jquery-ui.js" />
+    <Content Include="Scripts\plugins\jquery.colorbox-min.js" />
     <Content Include="Scripts\plugins\jquery.nivo.slider.js" />
     <Content Include="Scripts\plugins\jquery.nivo.slider.pack.js" />
     <Content Include="Scripts\plugins\themes\default\arrows.png" />
@@ -211,8 +218,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\pdf1.pdf" />
-    <None Include="Content\pdf2.pdf" />
+    <None Include="Content\OSF Brochures.pdf" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
@@ -231,7 +237,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>52318</DevelopmentServerPort>
+          <DevelopmentServerPort>52319</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -1,18 +1,17 @@
 ﻿using System.Web.Mvc;
 using System.IO;
-using System;
 
 namespace osf.web.Controllers
 {
     public class BrochuresController : Controller
     {
-        public ActionResult Pdf()
+        public ActionResult Index()
         {
-            string pdfPath = HttpContext.Server.MapPath("~/content/pdf1.pdf");
+            string pdfPath = HttpContext.Server.MapPath("~/content/OSF Brochures.pdf");
 
             FileStream fileStream = System.IO.File.OpenRead(pdfPath);
 
-            HttpContext.Response.AddHeader("content-disposition", "attachment; filename=form.pdf");
+            HttpContext.Response.AddHeader("content-disposition", "attachment; filename=OSF Brochure.pdf");
 
             return new FileStreamResult(fileStream, "application/pdf");
         }

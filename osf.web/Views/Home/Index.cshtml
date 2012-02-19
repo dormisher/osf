@@ -5,6 +5,7 @@
 	<link rel="stylesheet" href="@Url.Content("~/Content/nivo-slider.css")" type="text/css" media="screen"/>
     <link rel="stylesheet" href="@Url.Content("~/Scripts/plugins/themes/default/default.css")" type="text/css" media="screen"/>
     <link rel="stylesheet" href="@Url.Content("~/Content/home.css")" type="text/css"/>
+    <link rel="stylesheet" href="@Url.Content("~/Content/colorbox.css")" type="text/css"/>
 }
 
 <div id="sliderQuote">
@@ -101,7 +102,7 @@
                 <h3>Brochures</h3>
                 <p>Click here to view brochures containing further information about OSF</p>
             </div>
-            <a class="readMore" href="">read more →</a>
+            <a id="brochures" class="readMore" href="https://docs.google.com/viewer?url=@Model.BrochuresUrl&embedded=true">view brochures →</a>
         </li>
     </ul>
 </div>
@@ -155,8 +156,9 @@
 @section scripts
 {
 	<script type="text/javascript" src="/Scripts/plugins/jquery.nivo.slider.pack.js"></script>
-
-	<script type="text/javascript">
+    <script type="text/javascript" src="/Scripts/plugins/jquery.colorbox-min.js"></script>
+    
+    <script type="text/javascript">
 		$('#slider').nivoSlider({
 			effect:"random",
 			slices:15,
@@ -173,6 +175,8 @@
 			keyboardNav:true,
 			pauseOnHover:true,
 			manualAdvance:false
-		});
+		})
+
+		$('a#brochures').colorbox({iframe: true, width: "90%", height: "90%"})
 	</script>	
 }

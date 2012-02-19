@@ -12,7 +12,12 @@ namespace osf.web.Controllers
 
         public ActionResult Index()
         {
-            var model = new HomeModel {LatestEvents = _eventService.LoadEvents(4), Quote = GetQuote()};
+            var model = new HomeModel
+                            {
+                                LatestEvents = _eventService.LoadEvents(4),
+                                Quote = GetQuote(),
+                                BrochuresUrl = "http://osf.apphb.com/brochures"
+                            };
 
             return View(model);
         }
