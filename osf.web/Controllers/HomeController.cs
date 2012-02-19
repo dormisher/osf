@@ -16,7 +16,7 @@ namespace osf.web.Controllers
                             {
                                 LatestEvents = _eventService.LoadEvents(4),
                                 Quote = GetQuote(),
-                                BrochuresUrl = "http://osf.apphb.com/brochures"
+                                BrochuresUrl = "http://osf.apphb.com/content/osf%20brochures.pdf"
                             };
 
             return View(model);
