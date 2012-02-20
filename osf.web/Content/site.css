@@ -16,9 +16,9 @@ div#header { width:100%; background-color:#C4CEDA; padding-bottom:5px;}
 div#header #titleWrapper { width:1000px; margin:auto; padding-bottom:10px; }
 div#header #titleWrapper p { width:400px; }
 div#header #titleWrapper img { height:120px; margin-top:10px;margin-left: 20px;}
-div#header #titleWrapper span { float:right; color:#333; font-size:10px; font-weight:bold;margin-right: 20px;margin-top:10px; }
+div#header #titleWrapper span { float:right; color:#333; font-size:10px; font-weight:bold;margin-right: 20px;margin-top:10px; vertical-align:top;}
 
-ul#nav { list-style-type:none; list-style-position: outside; float:right; margin-top:-20px; font-family:Arial; width:410px;
+ul#nav { list-style-type:none; list-style-position: outside; float:right; margin-top:-15px; font-family:Arial; width:415px;
          margin-right: 20px;}
 ul#nav li { display:inline-block; zoom:1; *display:inline; font-size:12px; margin-left:30px; }
 ul#nav li a { color:#09347A; opacity:0.8; }
@@ -49,13 +49,13 @@ div#footer #giving img { margin-top: 10px;}
 div#footer #address { font-size: 12px;}
 div#footer #address td { padding: 5px 0; line-height:1.5;}
 
-div#footer #tweet p { background-color:#fff; border-radius:10px; padding:10px; color:#606060;}
-div#footer #tweet img { margin-left:65px; margin-bottom:-2px; }
+div#footer #tweet p { background-color:#fff; border-radius:10px; padding:10px; color:#606060; margin-top:-3px;}
+div#footer #tweet img { margin-left:65px; }
 
 
 /* content */
 
-div#content { background-color:#FCFCFC; padding-bottom:50px; padding-top:20px; }
+div#content { background-color:#fbfbfb; padding-bottom:50px; padding-top:20px; }
 div#contentWrapper { width:1000px; height:auto; margin:auto; }
 
 /* classes */
