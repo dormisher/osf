@@ -64,7 +64,7 @@ namespace osf.web.Controllers
 				});
 			quotes.Add(new QuoteModel
 				{
-					Person = "Pelle Mathausa",
+					Person = "Pelle Mathauda",
 					Info = "Lancashire Football Association",
 					Quote = "We at the Lancashire Football Association support all development of young people through sport. I personally believe that free sports coaching will increase performance levels of our young sports people and will definitely increase the numbers of participants."
 				});

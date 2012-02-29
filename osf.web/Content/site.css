@@ -31,6 +31,7 @@ div#footer #footerWrapper { width:1000px; margin:auto; padding-top:30px; }
 div#footer #footerWrapper div { width:223px;margin-right:30px;vertical-align: top;}
 div#footer h4 { padding-bottom: 10px;font-size: 12px;color: #EBEFF5;font-weight: bold;margin-bottom:20px; border-bottom:1px solid #7C94BC;}
 div#footer p { font-size: 12px;text-align: justify; }
+div#footer form { margin-top:20px; margin-left:28px;}
 
 div#footer #contact { margin-right: 0!important;}
 div#footer #contact input,
@@ -52,6 +53,9 @@ div#footer #address td { padding: 5px 0; line-height:1.5;}
 div#footer #tweet p { background-color:#fff; border-radius:10px; padding:10px; color:#606060; margin-top:-3px;}
 div#footer #tweet img { margin-left:65px; }
 
+div#footer #links { width:1000px; margin:30px auto; }
+div#footer #links a { color:#ddd;}
+div#footer #links a:hover { text-decoration:underline; }
 
 /* content */
 

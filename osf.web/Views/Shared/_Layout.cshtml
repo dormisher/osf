@@ -37,50 +37,58 @@
 		
 		<div id="footer">
 			<div id="footerWrapper">
-                <div id="giving" class="inlineBlock">
-                    <h4>DONATE</h4>
-                    <p>
-                        If you would like to donate to us you can do so by clicking the Donate button below
-                        and making a donation via paypal
-                    </p>
-                    <a href="http://justgiving.co.uk"><img src="@Url.Content("~/Content/images/just-giving.png")"/></a>
-                </div>
-                <div id="social" class="inlineBlock">
-                    <h4>FOLLOW US</h4>
-                    <a href="http://www.facebook.com/Opportunity.Sports"><img src="@Url.Content("~/Content/images/fb.png")" class="fadeTo"/></a>
-                    <a href="https://twitter.com/#!/OSF__"><img src="@Url.Content("~/Content/images/tw.png")" class="fadeTo"/></a>
-                    <a href="http://www.flickr.com/photos/opportunitysports"><img src="@Url.Content("~/Content/images/fl.png")" class="fadeTo"/></a>
+				<div id="giving" class="inlineBlock">
+					<h4>DONATE</h4>
+					<p>
+						If you would like to donate to us you can do so by clicking the Donate button below
+						and making a donation via paypal
+					</p>
+					<form action="https://www.paypal.com/cgi-bin/webscr" class="inlineBlock" method="post">
+						<input type="hidden" name="cmd" value="_s-xclick">
+						<input type="hidden" name="hosted_button_id" value="PZFQQZYBUKK8U">
+						<input type="image" src="https://www.paypalobjects.com/en_US/GB/i/btn/btn_donateCC_LG.gif" border="0" name="submit" alt="PayPal — The safer, easier way to pay online.">
+						<img alt="" border="0" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
+					</form>
+				</div>
+				<div id="social" class="inlineBlock">
+					<h4>FOLLOW US</h4>
+					<a href="http://www.facebook.com/Opportunity.Sports"><img src="@Url.Content("~/Content/images/fb.png")" class="fadeTo"/></a>
+					<a href="https://twitter.com/#!/OSF__"><img src="@Url.Content("~/Content/images/tw.png")" class="fadeTo"/></a>
+					<a href="http://www.flickr.com/photos/opportunitysports"><img src="@Url.Content("~/Content/images/fl.png")" class="fadeTo"/></a>
 					<a href="http://www.youtube.com/user/OpportunitySports/feed"><img src="@Url.Content("~/Content/images/yt.png")" class="fadeTo"/></a>
 					<div id="tweet">
 						<img src="@Url.Content("~/content/images/home/triangle.png")"/>
 						<p></p>
 					</div>
-                </div>
-                <div id="address" class="inlineBlock">
-                    <h4>CONTACT DETAILS</h4>
-                    <table>
-                        <tr>
-                            <td style="width:80px;">Tel:</td>
-                            <td>01772 666999</td>
-                        </tr>
-                        <tr>
-                            <td>Address:</td>
-                            <td>24 Some Road, Preston, Lancs, PR25 3GH</td>
-                        </tr>
-                    </table>
-                </div>
-                <div id="contact" class="inlineBlock">
-                    <h4>GET IN TOUCH</h4>
+				</div>
+				<div id="address" class="inlineBlock">
+					<h4>CONTACT DETAILS</h4>
+					<table>
+						<tr>
+							<td style="width:80px;">Tel:</td>
+							<td>07967013977</td>
+						</tr>
+						<tr>
+							<td>Address:</td>
+							<td>2 The Vineyard, Chorley Road, Walton Le Dale, PR5 4PR</td>
+						</tr>
+					</table>
+				</div>
+				<div id="contact" class="inlineBlock">
+					<h4>GET IN TOUCH</h4>
 					<p>Your Email</p>
 					<p id="emailValMsg" class="hidden">please enter a valid email!</p>
-                    <input id="email" type="text" value="@ViewBag.Email"/>
+					<input id="email" type="text" value="@ViewBag.Email"/>
 					<p>Message</p>
 					<p id="messageValMsg" class="hidden">please enter a message!</p>
 					<textarea id="message">@ViewBag.Message</textarea>
 					@*<img src="@Url.Content("~/content/images/ajax-loader.gif")" class="right"/>*@
 					<input id="sendFeedback" type="submit" value="SEND" class="button right"/>
 					<p id="sentMsg" class="hidden">Thanks! We'll be in touch...</p>
-                </div>
+				</div>
+			</div>
+			<div id="links">
+				<p>© copyright 2012 Opportunity Sports Foundation all rights reserved | @Html.ActionLink("admin", "Index", "Admin")</p>
 			</div>
 		</div>
 	</body>

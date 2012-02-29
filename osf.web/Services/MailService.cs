@@ -10,7 +10,6 @@ namespace osf.web.Services
 			msg.From = new MailAddress(email);
 			msg.Subject = "Feedback Submitted From opportunitysports.org";
 			msg.Body = message;
-			msg.To.Add(new MailAddress("dormisher@gmail.com"));
 			msg.To.Add(new MailAddress("info@opportunitysports.org"));
 
 			using (var smtpClient = new SmtpClient())
