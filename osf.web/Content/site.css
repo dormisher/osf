@@ -18,11 +18,11 @@ div#header #titleWrapper p { width:400px; }
 div#header #titleWrapper img { height:120px; margin-top:10px;margin-left: 20px;}
 div#header #titleWrapper span { float:right; color:#333; font-size:10px; font-weight:bold;margin-right: 20px;margin-top:10px; vertical-align:top;}
 
-ul#nav { list-style-type:none; list-style-position: outside; float:right; margin-top:-15px; font-family:Arial; width:415px;
+ul#nav { list-style-type:none; list-style-position: outside; float:right; margin-top:-15px; font-family:Arial; width:450px;
          margin-right: 20px;}
 ul#nav li { display:inline-block; zoom:1; *display:inline; font-size:12px; margin-left:30px; }
-ul#nav li a { color:#09347A; opacity:0.8; }
-ul#nav li a:hover { opacity:1; }
+ul#nav li a { color:#09347A; padding: 2px 5px; }
+ul#nav li a:hover { background-color:#00AEEE; color:#EDF0F3; border-radius: 4px; }
 
 /* footer */
 
